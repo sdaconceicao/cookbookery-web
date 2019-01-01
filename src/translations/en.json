@@ -1,3 +1,8 @@
 {
-
+  "preferences.title": "Preferences",
+  "recipes.title": "Recipes",
+  "recipe.cookTime": "Cook Time",
+  "recipe.prepTime": "Prep Time",
+  "recipe.steps": "Steps",
+  "recipe.ingredients": "Ingredients"
 }

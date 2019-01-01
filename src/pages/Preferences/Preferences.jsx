@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {FormattedMessage} from 'react-intl';
 
 export class Preferences extends Component {
 
@@ -6,7 +7,7 @@ export class Preferences extends Component {
 
         return (
             <div className='preferences'>
-                <h1>Preferences</h1>
+                <h1><FormattedMessage id='preferences.title'/></h1>
             </div>
         );
     }

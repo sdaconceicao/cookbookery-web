@@ -5,7 +5,7 @@ export function apiConfig(client, mockEnabled = false) {
 
     if (mockEnabled){
         const mock = new MockAdapter(client, {delayResponse: 500});
-        mock.onGet('/').reply(200, {data: recipesMock.recipesSuccess})
+        mock.onGet('/recipes').reply(200, recipesMock.recipesSuccess)
             .onAny().passThrough();
         return mock;
     }

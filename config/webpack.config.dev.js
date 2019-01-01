@@ -1,7 +1,6 @@
 'use strict';
 
-const autoprefixer = require('autoprefixer'),
-    webpack = require('webpack'),
+const webpack = require('webpack'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin'),
     InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin'),

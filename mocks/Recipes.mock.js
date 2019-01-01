@@ -1,5 +1,5 @@
 export const recipesSuccess = {
-    data:[
+    recipes:[
         {
             id: 1,
             title: 'Bacon and Eggs',
