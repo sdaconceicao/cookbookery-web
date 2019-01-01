@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
 
-import './App.scss';
-
-export class App extends Component {
+export class View extends Component {
 
     render() {
 
         return (
-            <div className="app">
-
+            <div className='view'>
             </div>
         );
     }
 }
 
-
-export default App;
+export default View;
