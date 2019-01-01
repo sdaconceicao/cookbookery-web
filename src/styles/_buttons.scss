@@ -1,0 +1,58 @@
+.btn {
+    border: 2px solid;
+    cursor: pointer;
+    border-radius: 0;
+    &:focus{
+        outline: none;
+    }
+    &.primary {
+        background-color: $brand-primary-bg;
+        color: $brand-primary-text;
+        border-color: $brand-primary-border;
+        &:hover {
+            background-color: $brand-primary-hover-bg;
+            color: $brand-primary-hover-text;
+            border-color: $brand-primary-hover-border;
+        }
+    }
+    &.secondary {
+        background-color: $brand-secondary-bg;
+        color: $brand-secondary-text;
+        border-color: $brand-secondary-border;
+        &:hover {
+            background-color: $brand-secondary-hover-bg;
+            color: $brand-secondary-hover-text;
+            border-color: $brand-secondary-hover-border;
+        }
+    }
+    &.tertiary {
+        background-color: $brand-tertiary-bg;
+        color: $brand-tertiary-text;
+        border-color: $brand-tertiary-border;
+        &:hover {
+            background-color: $brand-tertiary-hover-bg;
+            color: $brand-tertiary-hover-text;
+            border-color: $brand-tertiary-hover-border;
+        }
+    }
+
+    &.round {
+        border-radius: 50%;
+        width: 1.8rem;
+        height: 1.8rem;
+        padding: 0;
+        &.md {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+        &.lg {
+            width: 3.3em;
+            height: 3.3em;
+        }
+    }
+
+    &.block{
+        width: 100%;
+        display: block;
+    }
+}
