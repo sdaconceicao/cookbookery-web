@@ -1,1 +1,2 @@
-export Recipe from './Recipe';
+export RecipeDetails from './RecipeDetails';
+export RecipeCard from './RecipeCard';
