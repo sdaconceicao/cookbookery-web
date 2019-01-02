@@ -1,5 +1,7 @@
 {
+  "common.save": "Save",
   "preferences.title": "Preferences",
+  "preferences.theme": "Theme",
   "recipes.title": "Recipes",
   "recipe.cookTime": "Cook Time",
   "recipe.prepTime": "Prep Time",

@@ -19,7 +19,8 @@
     "react-textarea-autosize": "^7.1.0",
     "react-times": "^3.0.0",
     "react-transition-group": "2.5.2",
-    "reactstrap": "^7.0.2"
+    "reactstrap": "^7.0.2",
+    "shared-components": "https://github.com/sdaconceicao/shared-components"
   },
   "devDependencies": {
     "autoprefixer": "9.4.3",

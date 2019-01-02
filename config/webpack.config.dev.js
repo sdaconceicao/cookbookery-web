@@ -81,11 +81,14 @@ module.exports = {
                         loader: require.resolve('eslint-loader'),
                     },
                 ],
-                include: paths.appSrc,
+            include: [
+                paths.appSrc,
+                paths.node + '/shared-components'
+            ]
             },
             {
                 test: /\.(js|jsx)$/,
-                include: [paths.appSrc],
+                exclude: /node_modules\/(?!(shared-components)\/).*/,
                 loader: 'babel-loader'
             },
             {
