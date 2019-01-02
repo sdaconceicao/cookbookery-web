@@ -44,7 +44,8 @@ module.exports = {
         alias: {
             Components: paths.path.join(__dirname, "../src/components/"),
             Mocks: paths.path.join(__dirname, "../mocks/"),
-            Pages: paths.path.join(__dirname, "../pages/")
+            Pages: paths.path.join(__dirname, "../src/pages/"),
+            Styles: paths.path.join(__dirname, "../src/styles/")
         },
     },
 

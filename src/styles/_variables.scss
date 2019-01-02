@@ -3,7 +3,7 @@
 //-------------------------------------------------------------------------------------------------//
 
 //Colors
-$brand-primary: #4484ce;
+$brand-primary: #780d00;
 $brand-secondary: #f19f4d;
 $brand-tertiary: #f9cf00;
 $brand-success: #4CD964;
@@ -33,7 +33,7 @@ $brand-primary-bg: $brand-primary;
 $brand-primary-text: $brand-light;
 $brand-primary-border: $brand-primary;
 $brand-primary-hover-bg: $brand-light;
-$brand-primary-hover-text: $brand-primary;
+$brand-primary-hover-text: darken($brand-light, 20%);
 $brand-primary-hover-border: $brand-primary;
 $brand-secondary-bg: $brand-secondary;
 $brand-secondary-text: $brand-primary;

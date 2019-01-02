@@ -1,0 +1,13 @@
+@import '../styles/index.scss';
+
+.app-header{
+    background-color: $brand-appheader-bg;
+    color: $brand-appheader-text;
+    &__main{
+        padding-left: .25rem;
+    }
+    &__settings{
+        padding-right: .25rem;
+        text-align: right;
+    }
+}
