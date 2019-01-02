@@ -1,10 +1,16 @@
 @import '../styles/index.scss';
 
-.app-header{
+.main-nav{
     background-color: $brand-appheader-bg;
     color: $brand-appheader-text;
-    &__main{
+    font-size: 1.25rem;
+    &__logo{
         padding-left: .25rem;
+        &-name{
+            padding-left: .25rem;
+            position: relative;
+            top: .1rem;
+        }
     }
     &__settings{
         padding-right: .25rem;

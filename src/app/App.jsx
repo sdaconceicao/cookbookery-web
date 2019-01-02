@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {BrowserRouter as Router} from 'react-router-dom';
 import {IntlProvider} from "react-intl";
 
-import AppHeader from './AppHeader';
+import MainNav from './MainNav';
 import * as enMessage from '../translations/en.json';
 import Pages from 'Pages';
 
@@ -15,7 +15,7 @@ export class App extends Component {
             <IntlProvider locale="en" messages={enMessage}>
                 <Router>
                     <div className="app container-fluid">
-                        <AppHeader/>
+                        <MainNav className="app__header"/>
                         <main className="app__content row">
                             <Pages/>
                         </main>

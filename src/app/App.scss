@@ -1,9 +1,12 @@
+@import '../styles/utilities';
+
 .app{
-    &-header{
-        height: 2rem;
+    &__header{
+        height: $brand-app-header-height;
     }
     &__content{
-        height: calc(100vh - 2rem);
+        height: calc(100vh - #{$brand-app-header-height});
         overflow: auto;
+        padding: .25rem 1rem;
     }
 }
