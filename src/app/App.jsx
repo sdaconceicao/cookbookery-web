@@ -15,7 +15,9 @@ export class App extends Component {
             <IntlProvider locale="en" messages={enMessage}>
                 <Router>
                     <div className="app container-fluid">
-                        <MainNav className="app__header"/>
+                        <header className="app__header">
+                            <MainNav/>
+                        </header>
                         <main className="app__content row">
                             <Pages/>
                         </main>
