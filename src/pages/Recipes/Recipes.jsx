@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {FormattedMessage} from 'react-intl';
 import axios from 'axios';
 
-import {RecipeCard} from 'Components/Recipe';
+import {RecipeList} from 'Components/Recipe';
+import RecipeCard from "../../components/Recipe/RecipeCard";
 
 export class Recipes extends Component {
 
@@ -19,24 +20,18 @@ export class Recipes extends Component {
         })
     }
 
-    gotoRecipe = (id) =>{
+    handleClick = (id) =>{
         this.props.history.push(`/recipe/${id}`)
     };
 
     render() {
-        const {recipes} = this.state;
+        const {loading, recipes} = this.state;
         return (
             <div className="recipes">
                 <h1><FormattedMessage id='recipes.title'/></h1>
-                <ul className="recipes-list">
-                {recipes && recipes.map(recipe=>{
-                    return <li key={recipe.id}
-                                   className="recipe-list-item"
-                                   onClick={()=>this.gotoRecipe(recipe.id)}>
-                                <RecipeCard {...recipe}/>
-                            </li>
-                })}
-                </ul>
+                {!loading && <RecipeList recipes={recipes} render={(recipe)=>(
+                    <RecipeCard title={recipe.title} desc={recipe.desc} onClick={() => this.handleClick(recipe.id)}/>
+                )}/>}
             </div>
         );
     }
