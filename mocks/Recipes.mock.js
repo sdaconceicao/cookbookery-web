@@ -48,3 +48,7 @@ export const recipesSuccess = {
         }
     ]
 };
+
+export const createSuccess = {
+    id: 1234
+};
