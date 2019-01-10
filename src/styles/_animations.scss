@@ -1,18 +1,17 @@
-.fadeIn-leave {
-    opacity: 0;
-}
-
-.fadeIn-leave.fadeIn-leave-active {
-    opacity: 0;
-    transition: opacity $brand-app-transition-time ease-in-out;
-}
-
 .fadeIn-enter {
-    opacity: 0;
+    opacity: 0.01;
 }
 
 .fadeIn-enter.fadeIn-enter-active {
-    transform: translate3d(0, 0, 0);
     opacity: 1;
-    transition: opacity $brand-app-transition-time ease-in-out;
+    transition: opacity 500ms ease-in;
+}
+
+.fadeIn-exit {
+    opacity: 1;
+}
+
+.fadeIn-exit.fadeIn-exit-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
 }
