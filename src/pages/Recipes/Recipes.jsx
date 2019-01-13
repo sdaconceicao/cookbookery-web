@@ -5,6 +5,8 @@ import axios from 'axios';
 import {RecipeList} from 'Components/Recipe';
 import RecipeCard from "../../components/Recipe/RecipeCard";
 
+import "./Recipes.scss";
+
 export class Recipes extends Component {
 
     state = {
@@ -29,9 +31,11 @@ export class Recipes extends Component {
         return (
             <div className="recipes">
                 <h1><FormattedMessage id='recipes.title'/></h1>
-                {!loading && <RecipeList recipes={recipes} render={(recipe)=>(
+                {!loading &&
+                <RecipeList recipes={recipes} render={(recipe)=>(
                     <RecipeCard title={recipe.title} desc={recipe.desc} onClick={() => this.handleClick(recipe.id)}/>
-                )}/>}
+                )}/>
+                }
             </div>
         );
     }

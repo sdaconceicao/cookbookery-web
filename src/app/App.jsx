@@ -30,7 +30,6 @@ export class App extends Component {
                                         <Pages location={location}/>
                                     </CSSTransition>
                                 </TransitionGroup>
-
                             </main>
                         </div>
                     )}

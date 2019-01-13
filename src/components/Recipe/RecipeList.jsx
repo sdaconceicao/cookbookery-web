@@ -1,11 +1,13 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
+import './RecipeList.scss';
+
 export const RecipeList = ({recipes, render}) => (
-    <ul className="recipes-list">
+    <ul className="recipe-list">
         {recipes && recipes.map(recipe => (
             <li key={recipe.id}
-                className="recipe-list-item">
+                className="recipe-list__item">
                 {render(recipe)}
             </li>
         ))}

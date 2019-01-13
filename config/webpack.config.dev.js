@@ -11,7 +11,7 @@ const webpack = require('webpack'),
     publicPath = '/',
     env = getClientEnvironment(publicUrl),
     paths = require('./paths'), 
-    bootEntry = [require.resolve('react-dev-utils/webpackHotDevClient'), require.resolve('./polyfills'), paths.appIndexJs ];;
+    main = [require.resolve('react-dev-utils/webpackHotDevClient'), require.resolve('./polyfills'), paths.appIndexJs ];;
 
 function getParam(name){
     let value = process.argv.some(arg => arg.indexOf(`--${name}`) > -1)
@@ -26,11 +26,11 @@ function getParam(name){
 module.exports = {
     devtool: 'cheap-module-source-map',
     entry: {
-        boot: bootEntry,
+        main: main,
         vendor: [ "react", "react-dom"]
     },
     output: {
-        path:  paths.appRun,
+        path:  paths.appBuild,
         pathinfo: true,
         filename: 'static/js/[name].bundle.js',
         publicPath: publicPath
@@ -119,7 +119,9 @@ module.exports = {
                             },
                         },
                     },
-                    {loader: 'sass-loader'}
+                    {
+                        loader: 'sass-loader'
+                    }
                 ]
             },
         ]
@@ -132,7 +134,6 @@ module.exports = {
         }),
         new webpack.DefinePlugin(env.stringified),
         new webpack.DefinePlugin({MOCKS_ENABLED: (process.argv.some(arg => arg.indexOf('mocks=true') > 1 ) || false)}),
-        new webpack.DefinePlugin({MOCK_TYPE: JSON.stringify(getParam('mockType') || false)}),
         new webpack.HotModuleReplacementPlugin(),
         new CaseSensitivePathsPlugin(),
         new WatchMissingNodeModulesPlugin(paths.appNodeModules)

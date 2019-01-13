@@ -1,0 +1,10 @@
+.recipe-list{
+    list-style: none;
+    padding-left: 0;
+    &__item{
+        padding-right: .5rem;
+        &:last-child{
+            padding-right: 0;
+        }
+    }
+}
