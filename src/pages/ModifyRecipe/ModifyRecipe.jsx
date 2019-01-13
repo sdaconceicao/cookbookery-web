@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from "axios";
 import {FormattedMessage} from 'react-intl';
-import {Form, Forms} from "shared-components";
+import {Form, Forms} from "sad-shared-components";
 
 export class ModifyRecipe extends Component {
 

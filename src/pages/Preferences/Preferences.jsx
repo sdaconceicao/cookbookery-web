@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import {FormattedMessage} from 'react-intl';
-import {Form, Forms} from 'shared-components';
+import {Form, Forms} from 'sad-shared-components';
 
 export class Preferences extends Component {
 
     state = {
         themeOptions: [
-            {value: 'Red', label: 'Red'},
-            {value: 'Blue', label: 'Blue'},
-            {value: 'Dark', label: 'Dark'}
-        ],
+            {value: 'red', label: 'Red'},
+            {value: 'blue', label: 'Blue'},
+            {value: 'dark', label: 'Dark'}
+        ]
     };
 
     onSubmit = (e) =>{
@@ -22,7 +22,7 @@ export class Preferences extends Component {
             <div className='preferences'>
                 <h1><FormattedMessage id='preferences.title'/></h1>
                 <Form onSubmit={this.onSubmit}>
-                    <Forms.Select id="textinput"
+                    <Forms.Select id="select"
                                      name="theme"
                                      options={themeOptions}
                                      label={<FormattedMessage id='preferences.theme'/>}
