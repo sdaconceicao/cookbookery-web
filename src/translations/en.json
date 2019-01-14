@@ -11,5 +11,7 @@
   "recipe.prepTime": "Prep Time",
   "recipe.steps": "Steps",
   "recipe.ingredients": "Ingredients",
-  "recipe.ingredients.add": "Add Ingredient"
+  "recipe.ingredients.add": "Add Ingredient",
+  "recipe.steps": "Instructions",
+  "recipe.steps.add": "Add Step"
 }

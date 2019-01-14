@@ -16,7 +16,7 @@ export class ModifyRecipe extends Component {
         this.props.match.params.id
             ? axios.get(`/recipes/${this.props.match.params.id}`)
                 .then(response=>{
-                    this.setState({loading: false, recipe: response.data, ingredients: response.data.ingredients});
+                    this.setState({...response.data, loading: false});
                 }).catch(error=>{
                 console.error("ERROR in retrieving recipe", error);
             })
@@ -40,9 +40,14 @@ export class ModifyRecipe extends Component {
         ingredients.push('');
         this.setState({ingredients});
     };
+    handleAddStep = () =>{
+        const {steps} = this.state;
+        steps.push('');
+        this.setState({steps});
+    };
 
     render() {
-        const {recipe, creating, ingredients} = this.state;
+        const {creating, loading, desc, title, ingredients, steps} = this.state;
         return (
             <div className='modify-recipe'>
                 <h2>
@@ -51,14 +56,14 @@ export class ModifyRecipe extends Component {
                         : <FormattedMessage id='recipe.edit'/>
                     }
                 </h2>
-                {recipe &&
+                {!loading &&
                 <Form onSubmit={this.onSubmit}>
                     <Forms.TextInput name="title"
-                                value={recipe.title}
+                                value={title}
                                 required={true}
                                 label={<FormattedMessage id="recipe.title"/>}/>
                     <Forms.Textarea name="desc"
-                                value={recipe.desc}
+                                value={desc}
                                 required={true}
                                 label={<FormattedMessage id="recipe.desc"/>}/>
 
@@ -68,7 +73,7 @@ export class ModifyRecipe extends Component {
                             {ingredients.map((ingredient, index)=>{
                                 return (
                                     <li key={ingredient} className="ingredient-list__item">
-                                        <Forms.Textarea name={`ingredient${index}`}
+                                        <Forms.TextInput name={`ingredient${index}`}
                                                         value={ingredient}
                                                         />
                                     </li>
@@ -76,6 +81,23 @@ export class ModifyRecipe extends Component {
                             })}
                             <li className="ingredient-list__item">
                                 <Forms.Button onClick={this.handleAddIngredient}><FormattedMessage id="recipe.ingredients.add"/></Forms.Button>
+                            </li>
+                        </ul>
+                    </Forms.Fieldset>
+                    <Forms.Fieldset>
+                        <Forms.Label><FormattedMessage id="recipe.steps"/></Forms.Label>
+                        <ul className='modify-recipe__steps-list'>
+                            {steps.map((step, index)=>{
+                                return (
+                                    <li key={step} className="step-list__item">
+                                        <Forms.Textarea name={`step${index}`}
+                                                        value={step}
+                                        />
+                                    </li>
+                                )
+                            })}
+                            <li className="step-list__item">
+                                <Forms.Button onClick={this.handleAddStep}><FormattedMessage id="recipe.steps.add"/></Forms.Button>
                             </li>
                         </ul>
                     </Forms.Fieldset>
