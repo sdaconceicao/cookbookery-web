@@ -16,7 +16,7 @@ export class ModifyRecipe extends Component {
         this.props.match.params.id
             ? axios.get(`/recipes/${this.props.match.params.id}`)
                 .then(response=>{
-                    this.setState({loading: false, recipe: response.data});
+                    this.setState({loading: false, recipe: response.data, ingredients: response.data.ingredients});
                 }).catch(error=>{
                 console.error("ERROR in retrieving recipe", error);
             })
@@ -25,6 +25,7 @@ export class ModifyRecipe extends Component {
 
     onSubmit = (e) => {
         this.setState({saving: true});
+        console.log(e);
         this.state.creating
             ? axios.post(`/recipes`, e.data).then(() => {
                 this.setState({saving: false});
@@ -34,8 +35,14 @@ export class ModifyRecipe extends Component {
             })
     };
 
+    handleAddIngredient = () =>{
+        const {ingredients} = this.state;
+        ingredients.push('');
+        this.setState({ingredients});
+    };
+
     render() {
-        const {recipe, creating} = this.state;
+        const {recipe, creating, ingredients} = this.state;
         return (
             <div className='modify-recipe'>
                 <h2>
@@ -54,6 +61,24 @@ export class ModifyRecipe extends Component {
                                 value={recipe.desc}
                                 required={true}
                                 label={<FormattedMessage id="recipe.desc"/>}/>
+
+                    <Forms.Fieldset>
+                        <Forms.Label><FormattedMessage id="recipe.ingredients"/></Forms.Label>
+                        <ul className='modify-recipe__ingredient-list'>
+                            {ingredients.map((ingredient, index)=>{
+                                return (
+                                    <li key={ingredient} className="ingredient-list__item">
+                                        <Forms.Textarea name={`ingredient${index}`}
+                                                        value={ingredient}
+                                                        />
+                                    </li>
+                                )
+                            })}
+                            <li className="ingredient-list__item">
+                                <Forms.Button onClick={this.handleAddIngredient}><FormattedMessage id="recipe.ingredients.add"/></Forms.Button>
+                            </li>
+                        </ul>
+                    </Forms.Fieldset>
                     <Forms.Button type="submit"><FormattedMessage id="common.save"/></Forms.Button>
                 </Form>
                 }

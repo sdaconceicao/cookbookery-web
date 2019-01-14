@@ -10,5 +10,6 @@
   "recipe.cookTime": "Cook Time",
   "recipe.prepTime": "Prep Time",
   "recipe.steps": "Steps",
-  "recipe.ingredients": "Ingredients"
+  "recipe.ingredients": "Ingredients",
+  "recipe.ingredients.add": "Add Ingredient"
 }
