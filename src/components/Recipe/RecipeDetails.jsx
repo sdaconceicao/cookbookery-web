@@ -3,7 +3,7 @@ import {FormattedMessage} from 'react-intl';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-import IngredientList from 'Components/IngredientList';
+import Ingredients from 'Components/Ingredients';
 import Steps from 'Components/Steps';
 import TagsList from 'Components/TagsList';
 
@@ -15,7 +15,7 @@ export const RecipeDetails = ({title, desc, ingredients, servingSize, prepTime, 
         <div><FormattedMessage id={'recipe.prepTime'}/> {moment.duration(prepTime).asMinutes()}</div>
         <div><FormattedMessage id={'recipe.cookTime'}/> {moment.duration(cookTime).asMinutes()}</div>
         <h3><FormattedMessage id='recipe.ingredients'/></h3>
-        <IngredientList ingredients={ingredients}/>
+        <Ingredients ingredients={ingredients}/>
         <h3><FormattedMessage id='recipe.steps'/></h3>
         <Steps steps={steps}/>
     </article>

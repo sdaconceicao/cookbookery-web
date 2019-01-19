@@ -9,9 +9,8 @@
   "recipe.desc": "Description",
   "recipe.cookTime": "Cook Time",
   "recipe.prepTime": "Prep Time",
-  "recipe.steps": "Steps",
   "recipe.ingredients": "Ingredients",
   "recipe.ingredients.add": "Add Ingredient",
-  "recipe.steps": "Instructions",
+  "recipe.steps": "Steps",
   "recipe.steps.add": "Add Step"
 }

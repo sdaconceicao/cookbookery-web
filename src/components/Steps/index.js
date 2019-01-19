@@ -1,4 +1,4 @@
-import Steps from "./Steps";
+import StepsList from "./Steps";
 
-export Steps from './Steps';
-export default Steps;
+export StepsList from './Steps';
+export default StepsList;

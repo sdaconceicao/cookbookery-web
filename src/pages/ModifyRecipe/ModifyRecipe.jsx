@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from "axios";
 import {FormattedMessage} from 'react-intl';
-import {Form, Forms, arrayUtils} from "sad-shared-components";
+
+import {Form, Forms} from "sad-shared-components";
+
+import Ingredients from "Components/Ingredients";
+import Steps from "Components/Steps"
+import {getRecipe} from "Components/Recipe/Recipe.util";
 
 export class ModifyRecipe extends Component {
 
@@ -14,25 +19,19 @@ export class ModifyRecipe extends Component {
 
     componentDidMount(){
         this.props.match.params.id
-            ? axios.get(`/recipes/${this.props.match.params.id}`)
-                .then(response=>{
-                    response.data.ingredients = arrayUtils.addIdsToArrayElements(response.data.ingredients);
-                    response.data.steps = arrayUtils.addIdsToArrayElements(response.data.steps);
-                    this.setState({...response.data, loading: false});
-                }).catch(error=>{
-                console.error("ERROR in retrieving recipe", error);
+            ? getRecipe(this.props.match.params.id).then(recipe=>{
+                this.setState({...recipe, loading: false});
             })
             : this.setState({loading: false, recipe: {}});
     }
 
-    onSubmit = (e) => {
+    onSubmit = (data) => {
         this.setState({saving: true});
-        console.log(e);
         this.state.creating
-            ? axios.post(`/recipes`, e.data).then(() => {
+            ? axios.post(`/recipes`, data).then(() => {
                 this.setState({saving: false});
             })
-            : axios.put(`/recipes/${this.props.match.params.id}`, e.data).then(() => {
+            : axios.put(`/recipes/${this.props.match.params.id}`, data).then(() => {
                 this.setState({saving: false});
             })
     };
@@ -42,6 +41,7 @@ export class ModifyRecipe extends Component {
         ingredients.push({key: Math.floor(Math.random() * 1000+1), value: ''});
         this.setState({ingredients});
     };
+
     handleAddStep = () =>{
         const {steps} = this.state;
         steps.push({key: Math.floor(Math.random() * 1000+1), value: ''});
@@ -80,38 +80,17 @@ export class ModifyRecipe extends Component {
                                 value={desc}
                                 required={true}
                                 label={<FormattedMessage id="recipe.desc"/>}/>
-
-                    <Forms.Label><FormattedMessage id="recipe.ingredients"/></Forms.Label>
-                    <Forms.Fieldset>
-                            <ul>
-                            {ingredients.map((ingredient, index)=>{
-                                return (
-                                    <li key={ingredient.key}>
-                                    <Forms.TextInput name="ingredient" index={index}
-                                                     value={ingredient.value}/>
-                                        <button type="button" onClick={()=>this.handleRemoveIngredient(index)}>X</button>
-                                    </li>
-                                )
-                            })}
-                            </ul>
-                        <button type="button" onClick={this.handleAddIngredient}><FormattedMessage id="recipe.ingredients.add"/></button>
+                    <Forms.Fieldset legend={<FormattedMessage id="recipe.ingredients"/>} required={true}>
+                        <Ingredients ingredients={ingredients}
+                            editable={true}
+                            handleAddIngredient={this.handleAddIngredient}
+                            handleRemoveIngredient={this.handleRemoveIngredient} />
                     </Forms.Fieldset>
-                    <Forms.Fieldset>
-                        <Forms.Label><FormattedMessage id="recipe.steps"/></Forms.Label>
-                        <ol className='modify-recipe__steps-list'>
-                            {steps.map((step, index)=>{
-                                return (
-                                    <li key={step.key} className="step-list__item">
-                                        <Forms.Textarea name="step" index={index}
-                                                        value={step.value}
-                                        />
-                                        <button type="button" onClick={()=>this.handleRemoveStep(index)}>X</button>
-                                    </li>
-                                )
-                            })}
-                        </ol>
-
-                        <Forms.Button onClick={this.handleAddStep}><FormattedMessage id="recipe.steps.add"/></Forms.Button>
+                    <Forms.Fieldset legend={<FormattedMessage id="recipe.steps"/>} required={true}>
+                        <Steps steps={steps}
+                            editable={true}
+                            handleAddStep={this.handleAddStep}
+                            handleRemoveStep={this.handleRemoveStep}/>
                     </Forms.Fieldset>
                     <Forms.Button type="submit"><FormattedMessage id="common.save"/></Forms.Button>
                 </Form>

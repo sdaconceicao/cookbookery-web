@@ -1,25 +1,24 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import axios from "axios";
 import {Link} from 'react-router-dom';
 import MdEdit from "react-icons/lib/md/edit";
 
 import {RecipeDetails} from "Components/Recipe";
-
+import {getRecipe} from "Components/Recipe/Recipe.util";
 
 export class ViewRecipe extends Component {
 
     state = {
-        loading: true
+        loading: true,
+        error: false
     };
 
     componentDidMount(){
-        axios.get(`/recipes/${this.props.match.params.id}`)
-            .then(response=>{
-                this.setState({loading: false, recipe: response.data});
-            }).catch(error=>{
-            console.error("ERROR in retrieving recipe", error);
-        })
+        this.props.match.params.id
+            ? getRecipe(this.props.match.params.id).then(recipe=>{
+                this.setState({recipe: recipe, loading: false});
+            })
+            : this.setState({loading: false, error: true});
     }
 
     render() {
