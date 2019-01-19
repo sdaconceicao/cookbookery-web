@@ -22,7 +22,7 @@ export class ModifyRecipe extends Component {
             ? getRecipe(this.props.match.params.id).then(recipe=>{
                 this.setState({...recipe, loading: false});
             })
-            : this.setState({loading: false, recipe: {}});
+            : this.setState({loading: false, title: '', desc: '', ingredients:[], steps:[]});
     }
 
     onSubmit = (data) => {
