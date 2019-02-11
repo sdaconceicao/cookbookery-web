@@ -11,7 +11,7 @@ export const Ingredients = ({ingredients, editable, handleAddIngredient, handleR
                     <li key={ingredient.key} className="ingredient-list__item">
                         {editable
                             ? <Fragment>
-                                <Forms.TextInput name="ingredient" index={index}
+                                <Forms.Input name="ingredient" index={index}
                                                  value={ingredient.value}/>
                                 <button type="button" onClick={()=>handleRemoveIngredient(index)}>X</button>
                             </Fragment>

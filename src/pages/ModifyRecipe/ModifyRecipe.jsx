@@ -72,7 +72,7 @@ export class ModifyRecipe extends Component {
                 </h2>
                 {!loading &&
                 <Form onSubmit={this.onSubmit}>
-                    <Forms.TextInput name="title"
+                    <Forms.Input name="title"
                                 value={title}
                                 required={true}
                                 label={<FormattedMessage id="recipe.title"/>}/>
@@ -86,7 +86,7 @@ export class ModifyRecipe extends Component {
                             handleAddIngredient={this.handleAddIngredient}
                             handleRemoveIngredient={this.handleRemoveIngredient} />
                     </Forms.Fieldset>
-                    <Forms.Fieldset legend={<FormattedMessage id="recipe.steps"/>} required={true}>
+                    <Forms.Fieldset legend={<FormattedMessage id="recipe.ingredients"/>} required={true}>
                         <Steps steps={steps}
                             editable={true}
                             handleAddStep={this.handleAddStep}

@@ -83,12 +83,12 @@ module.exports = {
                 ],
             include: [
                 paths.appSrc,
-                paths.node + '/shared-components'
+                paths.node + '/sad-shared-components'
             ]
             },
             {
                 test: /\.(js|jsx)$/,
-                exclude: /node_modules\/(?!(shared-components)\/).*/,
+                exclude: /node_modules\/(?!(sad-shared-components)\/).*/,
                 loader: 'babel-loader'
             },
             {
