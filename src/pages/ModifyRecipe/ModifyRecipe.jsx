@@ -76,7 +76,7 @@ export class ModifyRecipe extends Component {
                                 value={title}
                                 required={true}
                                 label={<FormattedMessage id="recipe.title"/>}/>
-                    <Forms.Textarea name="desc"
+                    <Forms.RichTextEditor name="desc"
                                 value={desc}
                                 required={true}
                                 label={<FormattedMessage id="recipe.desc"/>}/>
@@ -86,7 +86,7 @@ export class ModifyRecipe extends Component {
                             handleAddIngredient={this.handleAddIngredient}
                             handleRemoveIngredient={this.handleRemoveIngredient} />
                     </Forms.Fieldset>
-                    <Forms.Fieldset legend={<FormattedMessage id="recipe.ingredients"/>} required={true}>
+                    <Forms.Fieldset legend={<FormattedMessage id="recipe.steps"/>} required={true}>
                         <Steps steps={steps}
                             editable={true}
                             handleAddStep={this.handleAddStep}

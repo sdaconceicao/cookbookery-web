@@ -1,7 +1,7 @@
 @import '~bootstrap/scss/bootstrap.scss';
 @import 'utilities';
-@import 'buttons';
 @import 'animations';
+@import '~sad-shared-components/src/styles/themes/default/index.scss';
 
 html, body {
     width: 100%;

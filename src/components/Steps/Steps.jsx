@@ -2,6 +2,7 @@ import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import {Forms} from 'sad-shared-components';
 import {FormattedMessage} from "react-intl";
+import FaClose from "react-icons/lib/fa/close";
 
 export const Steps = ({steps, editable, handleAddStep, handleRemoveStep}) => (
     <div className="steps">
@@ -11,9 +12,15 @@ export const Steps = ({steps, editable, handleAddStep, handleRemoveStep}) => (
                     <li key={step.key} className="step-list__item">
                         {editable
                             ? <Fragment>
-                                <Forms.Textarea name="step" index={index}
+                                <Forms.RichTextEditor name="step"
+                                                     index={index}
+                                                     className="with-button"
                                                  value={step.value}/>
-                                <button type="button" onClick={()=>handleRemoveStep(index)}>X</button>
+                                <Forms.Button type="button"
+                                              className="with-input"
+                                              onClick={()=>handleRemoveStep(index)}>
+                                    <FaClose/>
+                                </Forms.Button>
                             </Fragment>
                             : step.value
                         }
