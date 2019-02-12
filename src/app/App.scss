@@ -1,11 +1,10 @@
-@import '../styles/utilities';
-
 .app{
+    font-family: var(--app-font-family);
     &__header{
-        height: $brand-app-header-height;
+        height: var(--app-header-height);
     }
     &__content{
-        height: calc(100vh - #{$brand-app-header-height});
+        height: calc(100vh - var(--app-header-height));
         overflow: auto;
         padding: .25rem 1rem;
     }

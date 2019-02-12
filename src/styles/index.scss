@@ -1,19 +1,4 @@
 @import '~bootstrap/scss/bootstrap.scss';
-@import 'utilities';
-@import 'animations';
 @import '~sad-shared-components/src/styles/themes/default/index.scss';
-
-html, body {
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    margin: 0;
-    font-family: "Open Sans";
-}
-
-a{
-    color: $brand-primary-text;
-    &:hover{
-        color: $brand-primary-hover-text;
-    }
-}
+@import '~sad-shared-components/src/styles/utilities';
+@import 'variables';

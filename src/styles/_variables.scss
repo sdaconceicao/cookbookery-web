@@ -1,67 +1,8 @@
-//---------------------------------------Variables Only--------------------------------------------//
-//Do not include any CSS in this document, otherwise it will be duplicated each time this is imported
-//-------------------------------------------------------------------------------------------------//
+:root{
+    --color-primary: #ae1c2f;
+    --color-primary-dark: #580e18;
 
-//Colors
-$brand-primary: #780d00;
-$brand-secondary: #f19f4d;
-$brand-tertiary: #f9cf00;
-$brand-success: #4CD964;
-$brand-warning: #F0D540;
-$brand-error: #FF3B30;
-$brand-light: #ffffff;
-$brand-medium: #DDDDDD;
-$brand-medium-dark: #AAAAAA;
-$brand-dark: #000000;
-
-//Layout
-$brand-appheader-bg: $brand-primary;
-$brand-appheader-text: $brand-light;
-$brand-appheader-border: darken($brand-primary, 10%);
-$brand-content-bg: $brand-light;
-$brand-content-text: $brand-dark;
-$brand-content-border: $brand-medium-dark;
-$brand-header-bg: $brand-medium-dark;
-$brand-header-text: $brand-dark;
-$brand-header-border: darken($brand-medium-dark, 10%);
-$brand-subheader-bg: $brand-medium;
-$brand-subheader-text: $brand-dark;
-$brand-subheader-border: darken($brand-medium, 10%);
-
-//Buttons
-$brand-primary-bg: $brand-primary;
-$brand-primary-text: $brand-light;
-$brand-primary-border: $brand-primary;
-$brand-primary-hover-bg: $brand-light;
-$brand-primary-hover-text: darken($brand-light, 20%);
-$brand-primary-hover-border: $brand-primary;
-$brand-secondary-bg: $brand-secondary;
-$brand-secondary-text: $brand-primary;
-$brand-secondary-border: $brand-primary;
-$brand-secondary-hover-bg: $brand-primary;
-$brand-secondary-hover-text: $brand-secondary;
-$brand-secondary-hover-border: $brand-primary;
-$brand-tertiary-bg: $brand-tertiary;
-$brand-tertiary-text: $brand-light;
-$brand-tertiary-border: $brand-tertiary;
-$brand-tertiary-hover-bg: $brand-light;
-$brand-tertiary-hover-text: $brand-tertiary;
-$brand-tertiary-hover-border: $brand-tertiary;
-
-//Links
-$brand-link: $brand-primary;
-
-//Messages
-$brand-success-bg: $brand-success;
-$brand-success-text: darken($brand-success, 30%);
-$brand-success-border: darken($brand-success, 30%);
-$brand-error-bg: $brand-error;
-$brand-error-text: darken($brand-error, 30%);
-$brand-error-border: darken($brand-error, 30%);
-$brand-warning-bg: $brand-warning;
-$brand-warning-text: darken($brand-warning, 60%);
-$brand-warning-border: darken($brand-warning, 60%);
-
-//Misc
-$brand-app-header-height: 2.2rem;
-$brand-app-transition-time: .5s;
+    --app-header-height: 2.2rem;
+    --app-transition-time: .5s;
+    --app-font-family:  "Open Sans";
+}

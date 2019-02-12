@@ -11,11 +11,11 @@ export class MainNav extends Component {
         return (
             <nav className="main-nav row">
                 <div className="col-9 main-nav__logo">
-                    <Link to="/"><MdDehaze/></Link>
+                    <Link to="/" className="main-nav__link"><MdDehaze/></Link>
                     <span className="main-nav__logo-name">Cookbookery</span>
                 </div>
                 <div className="col-3 main-nav__settings">
-                    <Link to='/preferences'><MdSettings/></Link>
+                    <Link to='/preferences' className="main-nav__link"><MdSettings/></Link>
                 </div>
             </nav>
         );

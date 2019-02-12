@@ -1,8 +1,6 @@
-@import '../styles/index.scss';
-
 .main-nav{
-    background-color: $brand-appheader-bg;
-    color: $brand-appheader-text;
+    background-color: var(--color-primary-hover-bg);
+    color: var(--color-primary-text);
     font-size: 1.25rem;
     &__logo{
         padding-left: .25rem;
@@ -15,5 +13,8 @@
     &__settings{
         padding-right: .25rem;
         text-align: right;
+    }
+    &__link:hover{
+        color: var(--color-primary-text);
     }
 }

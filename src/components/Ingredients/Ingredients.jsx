@@ -18,7 +18,7 @@ export const Ingredients = ({ingredients, editable, handleAddIngredient, handleR
                                              index={index}
                                              value={ingredient.value}/>
                                 <Forms.Button type="button"
-                                              className="with-input"
+                                              className="with-input primary"
                                               onClick={()=>handleRemoveIngredient(index)}>
                                     <FaClose/>
                                 </Forms.Button>
@@ -31,7 +31,10 @@ export const Ingredients = ({ingredients, editable, handleAddIngredient, handleR
 
         </ul>
         {editable &&
-            <Forms.Button onClick={handleAddIngredient}><FormattedMessage id="recipe.ingredients.add"/></Forms.Button>
+            <Forms.Button className="primary"
+                          onClick={handleAddIngredient}>
+                <FormattedMessage id="recipe.ingredients.add"/>
+            </Forms.Button>
         }
     </div>
 );

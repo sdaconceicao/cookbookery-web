@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from "axios";
 import {FormattedMessage} from 'react-intl';
+import {Link} from "react-router-dom";
 
 import {Form, Forms} from "sad-shared-components";
 
 import Ingredients from "Components/Ingredients";
 import Steps from "Components/Steps"
 import {getRecipe} from "Components/Recipe/Recipe.util";
+
 
 export class ModifyRecipe extends Component {
 
@@ -61,7 +63,7 @@ export class ModifyRecipe extends Component {
     };
 
     render() {
-        const {creating, loading, desc, title, ingredients, steps} = this.state;
+        const {id, creating, loading, desc, title, ingredients, steps} = this.state;
         return (
             <div className='modify-recipe col-12'>
                 <h2>
@@ -93,6 +95,7 @@ export class ModifyRecipe extends Component {
                             handleRemoveStep={this.handleRemoveStep}/>
                     </Forms.Fieldset>
                     <Forms.Button type="submit"><FormattedMessage id="common.save"/></Forms.Button>
+                    <Link to={`/recipe/${id}`}><FormattedMessage id="common.cancel"/></Link>
                 </Form>
                 }
             </div>

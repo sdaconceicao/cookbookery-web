@@ -17,7 +17,7 @@ export const Steps = ({steps, editable, handleAddStep, handleRemoveStep}) => (
                                                      className="with-button"
                                                  value={step.value}/>
                                 <Forms.Button type="button"
-                                              className="with-input"
+                                              className="with-input primary"
                                               onClick={()=>handleRemoveStep(index)}>
                                     <FaClose/>
                                 </Forms.Button>
@@ -30,7 +30,10 @@ export const Steps = ({steps, editable, handleAddStep, handleRemoveStep}) => (
 
         </ol>
         {editable &&
-        <Forms.Button onClick={handleAddStep}><FormattedMessage id="recipe.steps.add"/></Forms.Button>
+        <Forms.Button className="primary"
+                      onClick={handleAddStep}>
+            <FormattedMessage id="recipe.steps.add"/>
+        </Forms.Button>
         }
     </div>
 );
