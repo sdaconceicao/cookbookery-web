@@ -10,7 +10,6 @@ import Ingredients from "Components/Ingredients";
 import Steps from "Components/Steps"
 import {getRecipe} from "Components/Recipe/Recipe.util";
 
-
 export class ModifyRecipe extends Component {
 
     state = {
@@ -63,7 +62,7 @@ export class ModifyRecipe extends Component {
     };
 
     render() {
-        const {id, creating, loading, desc, title, ingredients, steps} = this.state;
+        const {id, creating, image, loading, desc, title, ingredients, steps} = this.state;
         return (
             <div className='modify-recipe col-12'>
                 <h2>
@@ -74,6 +73,11 @@ export class ModifyRecipe extends Component {
                 </h2>
                 {!loading &&
                 <Form onSubmit={this.onSubmit}>
+                    <Forms.ImagePicker name="image"
+                                      id="image"
+                                      value={image}
+                                      buttonClassName={'primary'}
+                                      label={<FormattedMessage id="recipe.image"/>}/>
                     <Forms.Input name="title"
                                 value={title}
                                 required={true}

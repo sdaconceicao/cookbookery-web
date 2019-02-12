@@ -13,5 +13,6 @@
   "recipe.ingredients": "Ingredients",
   "recipe.ingredients.add": "Add Ingredient",
   "recipe.steps": "Steps",
-  "recipe.steps.add": "Add Step"
+  "recipe.steps.add": "Add Step",
+  "recipe.image": "Image"
 }

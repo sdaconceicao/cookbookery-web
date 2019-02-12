@@ -4,7 +4,8 @@ import {IntlProvider} from "react-intl";
 import {TransitionGroup, CSSTransition} from 'react-transition-group';
 
 import MainNav from './MainNav';
-import * as enMessage from '../translations/en.json';
+import * as enMessages from '../translations/en.json';
+import {enMessages as sharedEnMessages} from 'sad-shared-components';
 import Pages from 'Pages';
 
 import './App.scss';
@@ -14,7 +15,7 @@ export class App extends Component {
     render() {
 
         return (
-            <IntlProvider locale="en" messages={enMessage}>
+            <IntlProvider locale="en" messages={Object.assign(enMessages, sharedEnMessages)}>
                 <Router>
                     <Route render={({ location }) => (
                         <div className="app container-fluid">
