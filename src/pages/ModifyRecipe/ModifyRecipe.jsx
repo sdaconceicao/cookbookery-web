@@ -77,26 +77,31 @@ export class ModifyRecipe extends Component {
                                       id="image"
                                       value={image}
                                       buttonClassName={'primary'}
+                                      wrapper={true}
                                       label={<FormattedMessage id="recipe.image"/>}/>
                     <Forms.Input name="title"
                                 value={title}
                                 required={true}
+                                wrapper={true}
                                 label={<FormattedMessage id="recipe.title"/>}/>
                     <Forms.RichTextEditor name="desc"
                                 value={desc}
                                 required={true}
+                                wrapper={true}
                                 label={<FormattedMessage id="recipe.desc"/>}/>
                     <Forms.Fieldset legend={<FormattedMessage id="recipe.ingredients"/>} required={true}>
                         <Ingredients ingredients={ingredients}
-                            editable={true}
-                            handleAddIngredient={this.handleAddIngredient}
-                            handleRemoveIngredient={this.handleRemoveIngredient} />
+                                editable={true}
+                                handleAddIngredient={this.handleAddIngredient}
+                                wrapper={true}
+                                handleRemoveIngredient={this.handleRemoveIngredient} />
                     </Forms.Fieldset>
                     <Forms.Fieldset legend={<FormattedMessage id="recipe.steps"/>} required={true}>
                         <Steps steps={steps}
-                            editable={true}
-                            handleAddStep={this.handleAddStep}
-                            handleRemoveStep={this.handleRemoveStep}/>
+                                editable={true}
+                                wrapper={true}
+                                handleAddStep={this.handleAddStep}
+                                handleRemoveStep={this.handleRemoveStep}/>
                     </Forms.Fieldset>
                     <Forms.Button type="submit"><FormattedMessage id="common.save"/></Forms.Button>
                     <Link to={`/recipe/${id}`}><FormattedMessage id="common.cancel"/></Link>
