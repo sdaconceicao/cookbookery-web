@@ -4,7 +4,7 @@ import axios from "axios";
 import {FormattedMessage} from 'react-intl';
 import {Link} from "react-router-dom";
 
-import {Form, Forms} from "sad-shared-components";
+import {Form, ImagePicker, Input, RichTextEditor, Fieldset, Button} from "sad-shared-components";
 
 import Ingredients from "Components/Ingredients";
 import Steps from "Components/Steps"
@@ -73,37 +73,37 @@ export class ModifyRecipe extends Component {
                 </h2>
                 {!loading &&
                 <Form onSubmit={this.onSubmit}>
-                    <Forms.ImagePicker name="image"
+                    <ImagePicker name="image"
                                       id="image"
                                       value={image}
                                       buttonClassName={'primary'}
                                       wrapper={true}
                                       label={<FormattedMessage id="recipe.image"/>}/>
-                    <Forms.Input name="title"
+                    <Input name="title"
                                 value={title}
                                 required={true}
                                 wrapper={true}
                                 label={<FormattedMessage id="recipe.title"/>}/>
-                    <Forms.RichTextEditor name="desc"
+                    <RichTextEditor name="desc"
                                 value={desc}
                                 required={true}
                                 wrapper={true}
                                 label={<FormattedMessage id="recipe.desc"/>}/>
-                    <Forms.Fieldset legend={<FormattedMessage id="recipe.ingredients"/>} required={true}>
+                    <Fieldset legend={<FormattedMessage id="recipe.ingredients"/>} required={true}>
                         <Ingredients ingredients={ingredients}
                                 editable={true}
                                 handleAddIngredient={this.handleAddIngredient}
                                 wrapper={true}
                                 handleRemoveIngredient={this.handleRemoveIngredient} />
-                    </Forms.Fieldset>
-                    <Forms.Fieldset legend={<FormattedMessage id="recipe.steps"/>} required={true}>
+                    </Fieldset>
+                    <Fieldset legend={<FormattedMessage id="recipe.steps"/>} required={true}>
                         <Steps steps={steps}
                                 editable={true}
                                 wrapper={true}
                                 handleAddStep={this.handleAddStep}
                                 handleRemoveStep={this.handleRemoveStep}/>
-                    </Forms.Fieldset>
-                    <Forms.Button type="submit"><FormattedMessage id="common.save"/></Forms.Button>
+                    </Fieldset>
+                    <Button type="submit"><FormattedMessage id="common.save"/></Button>
                     <Link to={`/recipe/${id}`}><FormattedMessage id="common.cancel"/></Link>
                 </Form>
                 }

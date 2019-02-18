@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {FormattedMessage} from 'react-intl';
-import {Form, Forms} from 'sad-shared-components';
+import {Form, Select, Button} from 'sad-shared-components';
 
 export class Preferences extends Component {
 
@@ -22,14 +22,14 @@ export class Preferences extends Component {
             <div className='preferences'>
                 <h1><FormattedMessage id='preferences.title'/></h1>
                 <Form onSubmit={this.onSubmit}>
-                    <Forms.Select id="select"
+                    <Select id="select"
                                      name="theme"
                                      options={themeOptions}
                                      label={<FormattedMessage id='preferences.theme'/>}
                                      value={theme}/>
-                    <Forms.Button type="submit">
+                    <Button type="submit">
                         <FormattedMessage id='common.save'/>
-                    </Forms.Button>
+                    </Button>
                 </Form>
             </div>
         );

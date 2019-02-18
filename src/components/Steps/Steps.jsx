@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
-import {Forms} from 'sad-shared-components';
+import {Button, RichTextEditor} from 'sad-shared-components';
 import {FormattedMessage} from "react-intl";
 import FaClose from "react-icons/lib/fa/close";
 
@@ -12,15 +12,15 @@ export const Steps = ({steps, editable, handleAddStep, handleRemoveStep}) => (
                     <li key={step.key} className="step-list__item">
                         {editable
                             ? <Fragment>
-                                <Forms.RichTextEditor name="step"
+                                <RichTextEditor name="step"
                                                      index={index}
                                                      className="with-button"
                                                  value={step.value}/>
-                                <Forms.Button type="button"
+                                <Button type="button"
                                               className="with-input primary"
                                               onClick={()=>handleRemoveStep(index)}>
                                     <FaClose/>
-                                </Forms.Button>
+                                </Button>
                             </Fragment>
                             : step.value
                         }
@@ -30,10 +30,10 @@ export const Steps = ({steps, editable, handleAddStep, handleRemoveStep}) => (
 
         </ol>
         {editable &&
-        <Forms.Button className="primary"
+        <Button className="primary"
                       onClick={handleAddStep}>
             <FormattedMessage id="recipe.steps.add"/>
-        </Forms.Button>
+        </Button>
         }
     </div>
 );

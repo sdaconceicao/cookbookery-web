@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
-import {Forms} from 'sad-shared-components';
+import {Button, Input} from 'sad-shared-components';
 import {FormattedMessage} from "react-intl";
 
 import FaClose from 'react-icons/lib/fa/close';
@@ -13,15 +13,15 @@ export const Ingredients = ({ingredients, editable, handleAddIngredient, handleR
                     <li key={ingredient.key} className="ingredient-list__item">
                         {editable
                             ? <Fragment>
-                                <Forms.Input name="ingredient"
+                                <Input name="ingredient"
                                              className="with-button"
                                              index={index}
                                              value={ingredient.value}/>
-                                <Forms.Button type="button"
+                                <Button type="button"
                                               className="with-input primary"
                                               onClick={()=>handleRemoveIngredient(index)}>
                                     <FaClose/>
-                                </Forms.Button>
+                                </Button>
                             </Fragment>
                             : ingredient.value
                         }
@@ -31,10 +31,10 @@ export const Ingredients = ({ingredients, editable, handleAddIngredient, handleR
 
         </ul>
         {editable &&
-            <Forms.Button className="primary"
+            <Button className="primary"
                           onClick={handleAddIngredient}>
                 <FormattedMessage id="recipe.ingredients.add"/>
-            </Forms.Button>
+            </Button>
         }
     </div>
 );
