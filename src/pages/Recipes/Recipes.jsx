@@ -33,7 +33,7 @@ export class Recipes extends Component {
                 <h1><FormattedMessage id='recipes.title'/></h1>
                 {!loading &&
                 <RecipeList recipes={recipes} render={(recipe)=>(
-                    <RecipeCard title={recipe.title} desc={recipe.desc} onClick={() => this.handleClick(recipe.id)}/>
+                    <RecipeCard title={recipe.title} desc={recipe.desc} image={recipe.image} onClick={() => this.handleClick(recipe.id)}/>
                 )}/>
                 }
             </div>
