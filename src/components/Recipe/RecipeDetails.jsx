@@ -3,12 +3,17 @@ import {FormattedMessage} from 'react-intl';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
+import {BackgroundImage} from 'sad-shared-components';
+
 import Ingredients from 'Components/Ingredients';
 import Steps from 'Components/Steps';
 import TagsList from 'Components/TagsList';
 
-export const RecipeDetails = ({title, desc, ingredients, servingSize, prepTime, cookTime, tags, steps}) => (
+import './RecipeDetails.scss';
+
+export const RecipeDetails = ({title, desc, image, ingredients, servingSize, prepTime, cookTime, tags, steps}) => (
     <article className="recipe">
+        <BackgroundImage src={image} className="recipe__image"/>
         <h2>{title}</h2>
         <div>{desc}</div>
         <TagsList tags={tags}/>

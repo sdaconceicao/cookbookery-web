@@ -1,7 +1,9 @@
 .main-nav{
     background-color: var(--color-primary-hover-bg);
     color: var(--color-primary-text);
-    font-size: 1.25rem;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    height: var(--app-header-height);
     &__logo{
         padding-left: .25rem;
         &-name{

@@ -27,7 +27,7 @@ export const recipesSuccess = {
             id: 2,
             title: 'Spaghetti',
             desc: 'An italian staple',
-            image: 'https://picsum.photos/200',
+            image: 'https://picsum.photos/1000',
             ingredients: [
                 '1 package of pasta',
                 '1 package of sauce'

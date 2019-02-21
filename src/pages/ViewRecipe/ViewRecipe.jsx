@@ -1,10 +1,13 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+import {FormattedMessage} from 'react-intl';
 import MdEdit from "react-icons/lib/md/edit";
 
 import {RecipeDetails} from "Components/Recipe";
 import {getRecipe} from "Components/Recipe/Recipe.util";
+
+import './ViewRecipe.scss';
 
 export class ViewRecipe extends Component {
 
@@ -24,12 +27,14 @@ export class ViewRecipe extends Component {
     render() {
         const {recipe} = this.state;
         return (
-            <div className='view-recipe'>
+            <div className='view-recipe col-12'>
                 {recipe &&
-                <Fragment>
-                    <RecipeDetails {...recipe}/>
-                    <Link to={`/recipe/${recipe.id}/edit`}><MdEdit/></Link>
-                </Fragment>
+                    <Fragment>
+                        <Link className="btn primary view-recipe__edit" to={`/recipe/${recipe.id}/edit`}>
+                            <MdEdit/> <FormattedMessage id="recipe.edit"/>
+                        </Link>
+                        <RecipeDetails {...recipe}/>
+                    </Fragment>
                 }
             </div>
         );

@@ -1,0 +1,10 @@
+.view-recipe{
+    &__edit{
+        position: absolute;
+        top: .5rem;
+        right: .5rem;
+    }
+    .recipe{
+        margin-top: -1rem;
+    }
+}

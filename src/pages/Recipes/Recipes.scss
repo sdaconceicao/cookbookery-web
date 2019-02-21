@@ -6,5 +6,11 @@
     }
     .recipe-card{
         cursor: pointer;
+        &:hover .recipe-card__content{
+            background-color: var(--color-primary-hover-bg);
+            color: var(--color-primary-hover-text);
+            transition: var(--app-transition);
+        }
     }
+
 }
