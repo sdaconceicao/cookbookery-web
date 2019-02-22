@@ -1,7 +1,8 @@
 .view-recipe{
+    position: relative;
     &__edit{
         position: absolute;
-        top: .5rem;
+        top: 1.5rem;
         right: .5rem;
     }
     .recipe{

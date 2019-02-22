@@ -10,6 +10,8 @@ import Ingredients from "Components/Ingredients";
 import Steps from "Components/Steps"
 import {getRecipe} from "Api";
 
+import './ModifyRecipe.scss';
+
 export class ModifyRecipe extends Component {
 
     state = {
@@ -64,7 +66,7 @@ export class ModifyRecipe extends Component {
     render() {
         const {id, creating, image, loading, desc, title, ingredients, steps} = this.state;
         return (
-            <div className='modify-recipe col-12'>
+            <div className='modify-recipe'>
                 <h2>
                     {creating
                         ? <FormattedMessage id='recipe.create'/>

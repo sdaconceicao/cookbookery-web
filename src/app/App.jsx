@@ -21,11 +21,11 @@ export class App extends Component {
             <IntlProvider locale="en" messages={Object.assign(enMessages, sharedEnMessages)}>
                 <Router>
                     <Route render={({ location }) => (
-                        <div className="app container-fluid">
-                            <header className="app__header">
+                        <div className="app">
+                            <header className="app__header container-fluid">
                                 <MainNav/>
                             </header>
-                            <main className="app__content row">
+                            <main className="app__content">
                                 <TransitionGroup component={Fragment}>
                                     <CSSTransition
                                         timeout={{enter: 500, exit: 300}}

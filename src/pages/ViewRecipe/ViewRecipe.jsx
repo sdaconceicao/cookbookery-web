@@ -27,7 +27,7 @@ export class ViewRecipe extends Component {
     render() {
         const {recipe} = this.state;
         return (
-            <div className='view-recipe col-12'>
+            <div className='view-recipe'>
                 {recipe &&
                     <Fragment>
                         <Link className="btn primary view-recipe__edit" to={`/recipe/${recipe.id}/edit`}>
