@@ -1,8 +1,10 @@
+
 .app{
     font-family: var(--app-font-family);
     background-color: var(--color-secondary-bg);
     &__header{
         height: var(--app-header-height);
+        margin: 0 -.5rem;
     }
     &__content{
         height: calc(100vh - var(--app-header-height));

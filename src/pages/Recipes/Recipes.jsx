@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import {FormattedMessage} from 'react-intl';
 import axios from 'axios';
 
-import {RecipeList} from 'Components/Recipe';
-import RecipeCard from "../../components/Recipe/RecipeCard";
+import RecipeList from 'Components/RecipeList';
+import RecipeCard from "Components/RecipeCard";
 
 import "./Recipes.scss";
 

@@ -4,8 +4,8 @@ import {Link} from 'react-router-dom';
 import {FormattedMessage} from 'react-intl';
 import MdEdit from "react-icons/lib/md/edit";
 
-import {RecipeDetails} from "Components/Recipe";
-import {getRecipe} from "Components/Recipe/Recipe.util";
+import RecipeDetails from "Components/RecipeDetails";
+import {getRecipe} from "Api";
 
 import './ViewRecipe.scss';
 

@@ -8,9 +8,9 @@ export function apiConfig(client, mockEnabled = false) {
         mock.onGet('/recipes').reply(200, recipesMock.recipesSuccess)
             .onPost('/recipes').reply(200, recipesMock.createSuccess)
             .onGet(/\/recipes\/[0-9]+/).reply(config=>{
-                const pathId = parseInt(config.url.substr(config.url.lastIndexOf('/')+1, config.url.length), 10);
-                return [200, recipesMock.recipesSuccess.recipes.filter(recipe=> recipe.id === pathId)[0]]
-            })
+            const pathId = parseInt(config.url.substr(config.url.lastIndexOf('/')+1, config.url.length), 10);
+            return [200, recipesMock.recipesSuccess.recipes.filter(recipe=> recipe.id === pathId)[0]]
+        })
             .onPut(/\/recipes\/[0-9]+/).reply(200, recipesMock.createSuccess)
             .onAny().passThrough();
         return mock;

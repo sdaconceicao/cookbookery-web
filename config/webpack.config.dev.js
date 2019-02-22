@@ -42,10 +42,10 @@ module.exports = {
         ],
         extensions: ['.js', '.json', '.jsx'],
         alias: {
+            Api: paths.path.join(__dirname, "../src/api/"),
             Components: paths.path.join(__dirname, "../src/components/"),
             Mocks: paths.path.join(__dirname, "../mocks/"),
-            Pages: paths.path.join(__dirname, "../src/pages/"),
-            Styles: paths.path.join(__dirname, "../src/styles/")
+            Pages: paths.path.join(__dirname, "../src/pages/")
         },
     },
 

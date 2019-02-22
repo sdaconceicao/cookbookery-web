@@ -2,8 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 
-import 'Styles/index.scss';
-
 import {apiConfig} from './api';
 import {App} from './app';
 

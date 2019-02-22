@@ -8,7 +8,7 @@ import {Form, ImagePicker, Input, RichTextEditor, Fieldset, Button} from "sad-sh
 
 import Ingredients from "Components/Ingredients";
 import Steps from "Components/Steps"
-import {getRecipe} from "Components/Recipe/Recipe.util";
+import {getRecipe} from "Api";
 
 export class ModifyRecipe extends Component {
 

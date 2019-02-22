@@ -8,6 +8,7 @@ import * as enMessages from '../translations/en.json';
 import {enMessages as sharedEnMessages} from 'sad-shared-components';
 import Pages from 'Pages';
 
+import './Styles/index.scss';
 import './App.scss';
 
 export class App extends Component {
