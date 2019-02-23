@@ -1,9 +1,12 @@
 {
   "common.save": "Save",
   "common.cancel": "Cancel",
+  "filters.prep": "Prep Time",
+  "filters.cook": "Cook Time",
   "preferences.title": "Preferences",
   "preferences.theme": "Theme",
   "recipes.title": "Recipes",
+  "recipe.add": "Add Recipe",
   "recipe.edit": "Edit Recipe",
   "recipe.create": "Create Recipe",
   "recipe.title": "Recipe Name",

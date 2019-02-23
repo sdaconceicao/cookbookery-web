@@ -1,0 +1,13 @@
+@import '~bootstrap/scss/bootstrap';
+@import '~sad-shared-components/src/styles/themes/default/index';
+@import '~sad-shared-components/src/styles/utilities';
+@import 'variables';
+
+.row{
+    margin-right: -1rem;
+    margin-left: -1rem;
+}
+.container-fluid{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}

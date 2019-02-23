@@ -12,7 +12,7 @@ export const Pages = ({location}) => {
         <Switch location={location}>
             <Route exact path='/' component={Recipes}/>
             <Route exact path='/preferences' component={Preferences}/>
-            <Route exact path='/recipe/create' component={ModifyRecipe}/>
+            <Route exact path='/recipe/add' component={ModifyRecipe}/>
             <Route path='/recipe/:id/edit' component={ModifyRecipe}/>
             <Route path='/recipe/:id' component={ViewRecipe}/>
         </Switch>

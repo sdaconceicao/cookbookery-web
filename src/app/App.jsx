@@ -3,13 +3,13 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 import {IntlProvider} from "react-intl";
 import {TransitionGroup, CSSTransition} from 'react-transition-group';
-
-import './Styles/index.scss'; //Need to load bootstrap styles before page/component styles
+import {enMessages as sharedEnMessages} from 'sad-shared-components';
 
 import MainNav from './MainNav';
 import Pages from 'Pages';
+import SubNav from "./SubNav";
+import SideNav from "./SideNav"
 import * as enMessages from '../translations/en.json';
-import {enMessages as sharedEnMessages} from 'sad-shared-components';
 
 import './App.scss';
 
@@ -24,7 +24,11 @@ export class App extends Component {
                         <div className="app">
                             <header className="app__header container-fluid">
                                 <MainNav/>
+                                <SubNav/>
                             </header>
+                            <aside>
+                                <SideNav/>
+                            </aside>
                             <main className="app__content">
                                 <TransitionGroup component={Fragment}>
                                     <CSSTransition

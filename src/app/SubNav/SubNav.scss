@@ -1,0 +1,14 @@
+.sub-nav{
+    padding: .5rem;
+    background-color: var(--color-tertiary-bg);
+    &__add{
+        padding-left: 0;
+    }
+    &__search{
+        padding-right: 0;
+        text-align: right;
+        .with-button{
+            width: 300px;
+        }
+    }
+}

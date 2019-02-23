@@ -17,9 +17,9 @@ export class Filters extends Component {
     render() {
         const {className} = this.props;
         return (
-            <aside className={`filters ${className}`}>
+            <div className={`filters ${className}`}>
 
-            </aside>
+            </div>
         );
     }
 }

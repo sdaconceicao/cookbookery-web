@@ -4,7 +4,6 @@ import axios from 'axios';
 
 import RecipeList from 'Components/RecipeList';
 import RecipeCard from "Components/RecipeCard";
-import Filters from "Components/Filters";
 
 import "./Recipes.scss";
 
@@ -30,15 +29,13 @@ export class Recipes extends Component {
     render() {
         const {loading, recipes} = this.state;
         return (
-            <div className="recipes row">
-                <Filters className="col-3"/>
+            <div className="recipes container-fluid">
+                <h1><FormattedMessage id='recipes.title'/></h1>
                 {!loading &&
-                <div className="recipes__content col-9">
-                    <h1><FormattedMessage id='recipes.title'/></h1>
-                    <RecipeList recipes={recipes} render={(recipe)=>(
-                        <RecipeCard title={recipe.title} desc={recipe.desc} image={recipe.image} onClick={() => this.handleClick(recipe.id)}/>
+                    <RecipeList recipes={recipes} render={(recipe) => (
+                        <RecipeCard title={recipe.title} desc={recipe.desc} image={recipe.image}
+                                    onClick={() => this.handleClick(recipe.id)}/>
                     )}/>
-                </div>
                 }
             </div>
         );
