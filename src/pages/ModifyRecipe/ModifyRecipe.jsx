@@ -7,6 +7,7 @@ import {Form, ImagePicker, Input, RichTextEditor, Fieldset, Button} from "sad-sh
 
 import Ingredients from "Components/Ingredients";
 import Steps from "Components/Steps"
+import HeaderNav from "Components/HeaderNav";
 
 import './ModifyRecipe.scss';
 
@@ -27,10 +28,11 @@ export class ModifyRecipe extends Component {
     }
 
     onSubmit = (data) => {
-        const {save} = this.props;
+        const {save, history} = this.props;
         this.setState({saving: true});
-        save(data).then(() => {
+        save(data).then((recipe) => {
             this.setState({saving: false});
+            history.push(`/recipe/${recipe.id}`)
         });
     };
 
@@ -67,19 +69,19 @@ export class ModifyRecipe extends Component {
         return (
             <div className='modify-recipe'>
                 <Form onSubmit={this.onSubmit}>
-                    <header className="modify-recipe__header">
-                        <h2 className="modify-recipe__title">
+                    <HeaderNav className="modify-recipe__header">
+                        <h2 className="modify-recipe__title col-9">
                             {creating
                                 ? <FormattedMessage id='recipe.create'/>
                                 : <FormattedMessage id='recipe.edit'/>
                             }
                         </h2>
-                        <div className="modify-recipe__controls">
+                        <div className="modify-recipe__controls col-3">
                             {creating && <Button className="secondary" onClick={this.handleBack}><FormattedMessage id="common.cancel"/></Button>}
                             {!creating && <Link className="btn secondary" to={`/recipe/${id}`}><FormattedMessage id="common.cancel"/></Link>}
                             <Button type="submit" className="primary"><FormattedMessage id="common.save"/></Button>
                         </div>
-                    </header>
+                    </HeaderNav>
                     <div className="modify-recipe__content">
                         {!loading && <Fragment>
                         <ImagePicker name="image"

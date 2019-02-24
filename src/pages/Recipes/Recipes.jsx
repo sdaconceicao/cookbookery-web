@@ -7,6 +7,9 @@ import RecipeCard from "Components/RecipeCard";
 import Searchbar from 'Components/Searchbar';
 
 import "./Recipes.scss";
+import HeaderNav from "../../components/HeaderNav/HeaderNav";
+import {Link} from "react-router-dom";
+import FaPlus from "react-icons/lib/fa/plus-square";
 
 export class Recipes extends Component {
 
@@ -31,9 +34,14 @@ export class Recipes extends Component {
         const {loading, recipes} = this.state;
         return (
             <div className="recipes">
-                <Searchbar/>
+                <HeaderNav>
+                    <h2 className="recipes__title col-md-8 col-6">
+                        <Link className="btn primary" to="/recipe/add"><FaPlus/></Link>
+                        <FormattedMessage id='recipes.title'/>
+                    </h2>
+                    <Searchbar className="col-md-4 col-6"/>
+                </HeaderNav>
                 <div className="recipes__content">
-                    <h1><FormattedMessage id='recipes.title'/></h1>
                     {!loading &&
                         <RecipeList recipes={recipes} render={(recipe) => (
                             <RecipeCard title={recipe.title} desc={recipe.desc} image={recipe.image}
