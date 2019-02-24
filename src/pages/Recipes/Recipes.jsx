@@ -39,7 +39,7 @@ export class Recipes extends Component {
                         <Link className="btn primary" to="/recipe/add"><FaPlus/></Link>
                         <FormattedMessage id='recipes.title'/>
                     </h2>
-                    <Searchbar className="col-md-4 col-6"/>
+                    <Searchbar className="recipes__search col-md-4 col-6"/>
                 </HeaderNav>
                 <div className="recipes__content">
                     {!loading &&

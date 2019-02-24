@@ -14,18 +14,26 @@ import './App.scss';
 
 export class App extends Component {
 
-    render() {
+    state = {
+        sideNavOpen: false
+    };
 
+    handleSideNavOpen = (sideNavOpen) =>{
+        this.setState({sideNavOpen});
+    };
+
+    render() {
+        const {sideNavOpen} = this.state;
         return (
             <IntlProvider locale="en" messages={Object.assign(enMessages, sharedEnMessages)}>
                 <Router>
                     <Route render={({ location }) => (
                         <div className="app">
                             <header className="app__header container-fluid">
-                                <MainNav/>
+                                <MainNav handleMenuClick={()=>this.handleSideNavOpen(true)}/>
                             </header>
-                            <aside>
-                                <SideNav/>
+                            <aside className={`app__sidenav ${sideNavOpen ? 'open' : 'closed'}`}>
+                                <SideNav handleClose={()=>this.handleSideNavOpen(false)}/>
                             </aside>
                             <main className="app__content">
                                 <TransitionGroup component={Fragment}>

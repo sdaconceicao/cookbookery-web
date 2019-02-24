@@ -6,6 +6,10 @@
             display: inline-block;
             margin-left: .5rem;
         }
+        padding-left: .5rem;
+    }
+    &__search{
+        padding-right: .5rem;
     }
     &__content{
         height: calc(100vh - 5.75rem);

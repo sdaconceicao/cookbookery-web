@@ -1,0 +1,13 @@
+.side-nav{
+    padding: 1rem;
+    &__close{
+        position: absolute;
+        top: .5rem;
+        right: .5rem;
+    }
+    &__list{
+        list-style: none;
+        margin-left: 0;
+        padding-left: 0;
+    }
+}

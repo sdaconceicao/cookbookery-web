@@ -9,4 +9,24 @@
         padding: 0rem 1rem;
         overflow: auto;
     }
+    &__sidenav{
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        overflow-x: hidden;
+        transition: 0.5s;
+        background-color: var(--color-primary-bg);
+        color: var(--color-primary-text);
+        &.open{
+            width: 300px;
+            height: 100vh;
+            display: flex;
+        }
+        &.closed{
+            width: 0;
+        }
+    }
 }
