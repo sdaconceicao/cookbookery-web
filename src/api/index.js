@@ -1,2 +1,2 @@
 export * from './api.config';
-export * from './recipe';
+export * as Recipe from './recipe';

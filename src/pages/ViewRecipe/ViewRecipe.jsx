@@ -5,7 +5,6 @@ import {FormattedMessage} from 'react-intl';
 import MdEdit from "react-icons/lib/md/edit";
 
 import RecipeDetails from "Components/RecipeDetails";
-import {getRecipe} from "Api";
 
 import './ViewRecipe.scss';
 
@@ -18,7 +17,7 @@ export class ViewRecipe extends Component {
 
     componentDidMount(){
         this.props.match.params.id
-            ? getRecipe(this.props.match.params.id).then(recipe=>{
+            ? this.props.get(this.props.match.params.id).then(recipe=>{
                 this.setState({recipe: recipe, loading: false});
             })
             : this.setState({loading: false, error: true});
@@ -42,7 +41,8 @@ export class ViewRecipe extends Component {
 }
 
 ViewRecipe.propTypes = {
-    match: PropTypes.object.isRequired
+    match: PropTypes.object.isRequired,
+    get: PropTypes.func.isRequired
 };
 
 export default ViewRecipe;

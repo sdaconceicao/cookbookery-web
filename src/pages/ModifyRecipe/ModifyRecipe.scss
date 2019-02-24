@@ -1,3 +1,25 @@
 .modify-recipe{
-    margin-top: 1rem;
+    &__header{
+        padding: .3rem;
+        margin: 0 -1rem;
+        height: 3rem;
+        background-color: var(--color-tertiary-bg);
+    }
+    &__title{
+        display: inline-block;
+        color: var(--color-tertiary-hover-text);
+        margin-top: .2rem;
+    }
+    &__controls{
+        display: inline-block;
+        text-align: right;
+        float: right;
+    }
+    &__content{
+        height: calc(100vh - 5.5rem);
+        overflow: auto;
+        margin: 0 -1rem;
+        padding: 1rem;
+    }
+
 }

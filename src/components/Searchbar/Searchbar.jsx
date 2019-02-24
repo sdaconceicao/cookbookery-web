@@ -8,9 +8,9 @@ import FaPlus from 'react-icons/lib/fa/plus-square';
 
 import {Input, Button} from 'sad-shared-components';
 
-import './SubNav.scss';
+import './Searchbar.scss';
 
-export class SubNav extends Component {
+export class Searchbar extends Component {
 
     state = {};
 
@@ -18,11 +18,11 @@ export class SubNav extends Component {
         const {className} = this.props,
             {search} = this.state;
         return (
-            <nav className={`sub-nav row ${className}`}>
-                <span className="sub-nav__add col-3">
+            <nav className={`searchbar row ${className}`}>
+                <span className="searchbar__add col-3">
                     <Link className="btn primary" to="/recipe/add"><FaPlus/> <FormattedMessage id="recipe.add"/></Link>
                 </span>
-                <span className="sub-nav__search col-9">
+                <span className="searchbar__search col-9">
                     <Input id="search" name="search" className="with-button"
                            value={search}
                            placeholder={"Search Recipes..."} />
@@ -34,9 +34,9 @@ export class SubNav extends Component {
     }
 }
 
-SubNav.propTypes = {
+Searchbar.propTypes = {
     className: PropTypes.string,
     onChange: PropTypes.object.isRequired
 };
 
-export default SubNav;
+export default Searchbar;

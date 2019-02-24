@@ -7,7 +7,6 @@ import {enMessages as sharedEnMessages} from 'sad-shared-components';
 
 import MainNav from './MainNav';
 import Pages from 'Pages';
-import SubNav from "./SubNav";
 import SideNav from "./SideNav"
 import * as enMessages from '../translations/en.json';
 
@@ -24,7 +23,6 @@ export class App extends Component {
                         <div className="app">
                             <header className="app__header container-fluid">
                                 <MainNav/>
-                                <SubNav/>
                             </header>
                             <aside>
                                 <SideNav/>

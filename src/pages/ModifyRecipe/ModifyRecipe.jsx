@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
-import axios from "axios";
 import {FormattedMessage} from 'react-intl';
 import {Link} from "react-router-dom";
 
@@ -8,7 +7,6 @@ import {Form, ImagePicker, Input, RichTextEditor, Fieldset, Button} from "sad-sh
 
 import Ingredients from "Components/Ingredients";
 import Steps from "Components/Steps"
-import {getRecipe} from "Api";
 
 import './ModifyRecipe.scss';
 
@@ -22,21 +20,18 @@ export class ModifyRecipe extends Component {
 
     componentDidMount(){
         this.props.match.params.id
-            ? getRecipe(this.props.match.params.id).then(recipe=>{
+            ? this.props.get(this.props.match.params.id).then(recipe=>{
                 this.setState({...recipe, loading: false});
             })
-            : this.setState({loading: false, title: '', desc: '', ingredients:[], steps:[]});
+            : this.setState({loading: false, title: '', desc: '', ingredients:[''], steps:['']});
     }
 
     onSubmit = (data) => {
+        const {save} = this.props;
         this.setState({saving: true});
-        this.state.creating
-            ? axios.post(`/recipes`, data).then(() => {
-                this.setState({saving: false});
-            })
-            : axios.put(`/recipes/${this.props.match.params.id}`, data).then(() => {
-                this.setState({saving: false});
-            })
+        save(data).then(() => {
+            this.setState({saving: false});
+        });
     };
 
     handleAddIngredient = () =>{
@@ -63,59 +58,72 @@ export class ModifyRecipe extends Component {
         this.setState({steps: newSteps });
     };
 
+    handleBack = () =>{
+        this.props.history.goBack();
+    };
+
     render() {
         const {id, creating, image, loading, desc, title, ingredients, steps} = this.state;
         return (
             <div className='modify-recipe'>
-                <h2>
-                    {creating
-                        ? <FormattedMessage id='recipe.create'/>
-                        : <FormattedMessage id='recipe.edit'/>
-                    }
-                </h2>
-                {!loading &&
                 <Form onSubmit={this.onSubmit}>
-                    <ImagePicker name="image"
-                                      id="image"
-                                      value={image}
-                                      buttonClassName={'primary'}
-                                      wrapper={true}
-                                      label={<FormattedMessage id="recipe.image"/>}/>
-                    <Input name="title"
-                                value={title}
-                                required={true}
-                                wrapper={true}
-                                label={<FormattedMessage id="recipe.title"/>}/>
-                    <RichTextEditor name="desc"
-                                value={desc}
-                                required={true}
-                                wrapper={true}
-                                label={<FormattedMessage id="recipe.desc"/>}/>
-                    <Fieldset legend={<FormattedMessage id="recipe.ingredients"/>} required={true}>
-                        <Ingredients ingredients={ingredients}
-                                editable={true}
-                                handleAddIngredient={this.handleAddIngredient}
-                                wrapper={true}
-                                handleRemoveIngredient={this.handleRemoveIngredient} />
-                    </Fieldset>
-                    <Fieldset legend={<FormattedMessage id="recipe.steps"/>} required={true}>
-                        <Steps steps={steps}
-                                editable={true}
-                                wrapper={true}
-                                handleAddStep={this.handleAddStep}
-                                handleRemoveStep={this.handleRemoveStep}/>
-                    </Fieldset>
-                    <Button type="submit"><FormattedMessage id="common.save"/></Button>
-                    <Link to={`/recipe/${id}`}><FormattedMessage id="common.cancel"/></Link>
+                    <header className="modify-recipe__header">
+                        <h2 className="modify-recipe__title">
+                            {creating
+                                ? <FormattedMessage id='recipe.create'/>
+                                : <FormattedMessage id='recipe.edit'/>
+                            }
+                        </h2>
+                        <div className="modify-recipe__controls">
+                            {creating && <Button className="secondary" onClick={this.handleBack}><FormattedMessage id="common.cancel"/></Button>}
+                            {!creating && <Link className="btn secondary" to={`/recipe/${id}`}><FormattedMessage id="common.cancel"/></Link>}
+                            <Button type="submit" className="primary"><FormattedMessage id="common.save"/></Button>
+                        </div>
+                    </header>
+                    <div className="modify-recipe__content">
+                        {!loading && <Fragment>
+                        <ImagePicker name="image"
+                                          id="image"
+                                          value={image}
+                                          buttonClassName={'primary'}
+                                          wrapper={true}
+                                          label={<FormattedMessage id="recipe.image"/>}/>
+                        <Input name="title"
+                                    value={title}
+                                    required={true}
+                                    wrapper={true}
+                                    label={<FormattedMessage id="recipe.title"/>}/>
+                        <RichTextEditor name="desc"
+                                    value={desc}
+                                    required={true}
+                                    wrapper={true}
+                                    label={<FormattedMessage id="recipe.desc"/>}/>
+                        <Fieldset legend={<FormattedMessage id="recipe.ingredients"/>} required={true}>
+                            <Ingredients ingredients={ingredients}
+                                    editable={true}
+                                    handleAddIngredient={this.handleAddIngredient}
+                                    wrapper={true}
+                                    handleRemoveIngredient={this.handleRemoveIngredient} />
+                        </Fieldset>
+                        <Fieldset legend={<FormattedMessage id="recipe.steps"/>} required={true}>
+                            <Steps steps={steps}
+                                    editable={true}
+                                    wrapper={true}
+                                    handleAddStep={this.handleAddStep}
+                                    handleRemoveStep={this.handleRemoveStep}/>
+                        </Fieldset>
+                        </Fragment>}
+                    </div>
                 </Form>
-                }
             </div>
         );
     }
 }
 
 ModifyRecipe.propTypes = {
-    match: PropTypes.object.isRequired
+    match: PropTypes.object.isRequired,
+    get: PropTypes.func.isRequired,
+    save: PropTypes.func.isRequired
 };
 
 export default ModifyRecipe;

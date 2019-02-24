@@ -1,6 +1,11 @@
 .recipes{
     height: 100%;
-    padding-top: .5rem;
+    &__content{
+        height: calc(100vh - 5.75rem);
+        margin: 0 -1rem;
+        padding: .5rem 1rem;
+        overflow: auto;
+    }
     .recipe-list__item{
         display: inline-block;
         width: calc(33.3% - 1rem);
