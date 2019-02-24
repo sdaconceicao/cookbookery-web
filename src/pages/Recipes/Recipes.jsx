@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {FormattedMessage} from 'react-intl';
+import {Link} from "react-router-dom";
+import FaPlus from "react-icons/lib/fa/plus-square";
 
 import RecipeList from 'Components/RecipeList';
 import RecipeCard from "Components/RecipeCard";
 import Searchbar from 'Components/Searchbar';
+import HeaderNav from "Components/HeaderNav/HeaderNav";
 
 import "./Recipes.scss";
-import HeaderNav from "../../components/HeaderNav/HeaderNav";
-import {Link} from "react-router-dom";
-import FaPlus from "react-icons/lib/fa/plus-square";
 
 export class Recipes extends Component {
 

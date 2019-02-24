@@ -22,7 +22,8 @@ export const Pages = ({location}) => {
                                                                            get={Recipe.get}
                                                                            save={Recipe.save}/>)}/>
             <Route path='/recipe/:id' render={(props)=>(<ViewRecipe {...props}
-                                                                      get={Recipe.get}/>)}/>
+                                                                      get={Recipe.get}
+                                                                      remove={Recipe.remove}/>)}/>
         </Switch>
     )
 };
