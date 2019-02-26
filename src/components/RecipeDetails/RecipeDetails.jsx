@@ -1,9 +1,8 @@
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
 import PropTypes from 'prop-types';
-import moment from 'moment';
 
-import {BackgroundImage} from 'sad-shared-components';
+import {BackgroundImage, DurationView} from 'sad-shared-components';
 
 import Ingredients from 'Components/Ingredients';
 import Steps from 'Components/Steps';
@@ -17,8 +16,8 @@ export const RecipeDetails = ({title, desc, image, ingredients, servingSize, pre
         <h2>{title}</h2>
         <div>{desc}</div>
         <TagsList tags={tags}/>
-        <div><FormattedMessage id={'recipe.prepTime'}/> {moment.duration(prepTime).asMinutes()}</div>
-        <div><FormattedMessage id={'recipe.cookTime'}/> {moment.duration(cookTime).asMinutes()}</div>
+        <div><FormattedMessage id={'recipe.prepTime'}/> <DurationView value={prepTime}/></div>
+        <div><FormattedMessage id={'recipe.cookTime'}/> <DurationView value={cookTime}/></div>
         <h3><FormattedMessage id='recipe.ingredients'/></h3>
         <Ingredients ingredients={ingredients}/>
         <h3><FormattedMessage id='recipe.steps'/></h3>

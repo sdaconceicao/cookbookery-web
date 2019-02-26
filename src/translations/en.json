@@ -19,6 +19,7 @@
   "recipe.steps": "Steps",
   "recipe.steps.add": "Add Step",
   "recipe.image": "Image",
+  "recipe.tags": "Tags",
   "recipe.remove.title": "Remove Recipe",
   "recipe.remove.desc": "Are you sure you want to remove this recipe?"
 }

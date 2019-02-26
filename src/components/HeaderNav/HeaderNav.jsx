@@ -12,7 +12,7 @@ export const HeaderNav = ({children, className}) => (
 
 HeaderNav.propTypes = {
     className: PropTypes.string,
-    children: PropTypes.object.isRequired
+    children: PropTypes.array.isRequired
 };
 
 export default HeaderNav;

@@ -9,8 +9,8 @@ export const recipesSuccess = {
                 '1 egg'
             ],
             servingSize: 4,
-            prepTime: 60000,
-            cookTime: 120000,
+            prepTime: 60,
+            cookTime: 120,
             tags: [
                 'breakfast',
                 'eggs',
@@ -33,8 +33,8 @@ export const recipesSuccess = {
                 '1 package of sauce'
             ],
             servingSize: 4,
-            prepTime: 60000,
-            cookTime: 120000,
+            prepTime: 60,
+            cookTime: 120,
             tags: [
                 'dinner',
                 'fast',
@@ -56,8 +56,8 @@ export const recipesSuccess = {
                 '1 egg'
             ],
             servingSize: 4,
-            prepTime: 60000,
-            cookTime: 120000,
+            prepTime: 60,
+            cookTime: 120,
             tags: [
                 'breakfast',
                 'eggs',
@@ -79,8 +79,8 @@ export const recipesSuccess = {
                 '1 egg'
             ],
             servingSize: 4,
-            prepTime: 60000,
-            cookTime: 120000,
+            prepTime: 60,
+            cookTime: 120,
             tags: [
                 'breakfast',
                 'eggs',
@@ -102,8 +102,8 @@ export const recipesSuccess = {
                 '1 egg'
             ],
             servingSize: 4,
-            prepTime: 60000,
-            cookTime: 120000,
+            prepTime: 60,
+            cookTime: 120,
             tags: [
                 'breakfast',
                 'eggs',
@@ -125,8 +125,8 @@ export const recipesSuccess = {
                 '1 egg'
             ],
             servingSize: 4,
-            prepTime: 60000,
-            cookTime: 120000,
+            prepTime: 60,
+            cookTime: 120,
             tags: [
                 'breakfast',
                 'eggs',
@@ -148,8 +148,8 @@ export const recipesSuccess = {
                 '1 egg'
             ],
             servingSize: 4,
-            prepTime: 60000,
-            cookTime: 120000,
+            prepTime: 60,
+            cookTime: 120,
             tags: [
                 'breakfast',
                 'eggs',
@@ -171,8 +171,8 @@ export const recipesSuccess = {
                 '1 egg'
             ],
             servingSize: 4,
-            prepTime: 60000,
-            cookTime: 120000,
+            prepTime: 60,
+            cookTime: 120,
             tags: [
                 'breakfast',
                 'eggs',
@@ -194,8 +194,8 @@ export const recipesSuccess = {
                 '1 egg'
             ],
             servingSize: 4,
-            prepTime: 60000,
-            cookTime: 120000,
+            prepTime: 60,
+            cookTime: 120,
             tags: [
                 'breakfast',
                 'eggs',
@@ -217,8 +217,8 @@ export const recipesSuccess = {
                 '1 egg'
             ],
             servingSize: 4,
-            prepTime: 60000,
-            cookTime: 120000,
+            prepTime: 60,
+            cookTime: 120,
             tags: [
                 'breakfast',
                 'eggs',
@@ -240,8 +240,8 @@ export const recipesSuccess = {
                 '1 egg'
             ],
             servingSize: 4,
-            prepTime: 60000,
-            cookTime: 120000,
+            prepTime: 60,
+            cookTime: 120,
             tags: [
                 'breakfast',
                 'eggs',
@@ -263,8 +263,8 @@ export const recipesSuccess = {
                 '1 egg'
             ],
             servingSize: 4,
-            prepTime: 60000,
-            cookTime: 120000,
+            prepTime: 60,
+            cookTime: 120,
             tags: [
                 'breakfast',
                 'eggs',
@@ -286,8 +286,8 @@ export const recipesSuccess = {
                 '1 egg'
             ],
             servingSize: 4,
-            prepTime: 60000,
-            cookTime: 120000,
+            prepTime: 60,
+            cookTime: 120,
             tags: [
                 'breakfast',
                 'eggs',
@@ -309,8 +309,8 @@ export const recipesSuccess = {
                 '1 egg'
             ],
             servingSize: 4,
-            prepTime: 60000,
-            cookTime: 120000,
+            prepTime: 60,
+            cookTime: 120,
             tags: [
                 'breakfast',
                 'eggs',
@@ -332,8 +332,8 @@ export const recipesSuccess = {
                 '1 egg'
             ],
             servingSize: 4,
-            prepTime: 60000,
-            cookTime: 120000,
+            prepTime: 60,
+            cookTime: 120,
             tags: [
                 'breakfast',
                 'eggs',
@@ -355,8 +355,8 @@ export const recipesSuccess = {
                 '1 egg'
             ],
             servingSize: 4,
-            prepTime: 60000,
-            cookTime: 120000,
+            prepTime: 60,
+            cookTime: 120,
             tags: [
                 'breakfast',
                 'eggs',
@@ -378,8 +378,8 @@ export const recipesSuccess = {
                 '1 egg'
             ],
             servingSize: 4,
-            prepTime: 60000,
-            cookTime: 120000,
+            prepTime: 60,
+            cookTime: 120,
             tags: [
                 'breakfast',
                 'eggs',
@@ -401,8 +401,8 @@ export const recipesSuccess = {
                 '1 egg'
             ],
             servingSize: 4,
-            prepTime: 60000,
-            cookTime: 120000,
+            prepTime: 60,
+            cookTime: 120,
             tags: [
                 'breakfast',
                 'eggs',
@@ -424,8 +424,8 @@ export const recipesSuccess = {
                 '1 egg'
             ],
             servingSize: 4,
-            prepTime: 60000,
-            cookTime: 120000,
+            prepTime: 60,
+            cookTime: 120,
             tags: [
                 'breakfast',
                 'eggs',
@@ -447,8 +447,8 @@ export const recipesSuccess = {
                 '1 egg'
             ],
             servingSize: 4,
-            prepTime: 60000,
-            cookTime: 120000,
+            prepTime: 60,
+            cookTime: 120,
             tags: [
                 'breakfast',
                 'eggs',

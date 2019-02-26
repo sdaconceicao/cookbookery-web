@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {FormattedMessage} from 'react-intl';
 import {Link} from "react-router-dom";
 
-import {Form, ImagePicker, Input, RichTextEditor, Fieldset, Button} from "sad-shared-components";
+import {Form, ImagePicker, Input, Duration, RichTextEditor, Tags, Fieldset, Button} from "sad-shared-components";
 
 import Ingredients from "Components/Ingredients";
 import Steps from "Components/Steps"
@@ -65,7 +65,7 @@ export class ModifyRecipe extends Component {
     };
 
     render() {
-        const {id, creating, image, loading, desc, title, ingredients, steps} = this.state;
+        const {id, creating, image, loading, prepTime, cookTime, desc, title, tags, ingredients, steps} = this.state;
         return (
             <div className='modify-recipe'>
                 <Form onSubmit={this.onSubmit}>
@@ -95,6 +95,23 @@ export class ModifyRecipe extends Component {
                                     required={true}
                                     wrapper={true}
                                     label={<FormattedMessage id="recipe.title"/>}/>
+                        <Tags name="tags"
+                              value={tags}
+                              editable={true}
+                              wrapper={true}
+                              buttonClassName="primary"
+                              label={<FormattedMessage id="recipe.tags"/>}/>
+                        <Duration id="prepTime" name="prepTime"
+                               value={prepTime}
+                               required={true}
+                               wrapper={true}
+                               label={<FormattedMessage id="recipe.prepTime"/>}/>
+                        <Duration id="cookTime" name="cookTime"
+                               value={cookTime}
+                               required={true}
+                               wrapper={true}
+                               label={<FormattedMessage id="recipe.cookTime"/>}/>
+
                         <RichTextEditor name="desc"
                                     value={desc}
                                     required={true}
