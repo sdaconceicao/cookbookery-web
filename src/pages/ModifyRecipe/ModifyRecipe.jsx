@@ -70,13 +70,13 @@ export class ModifyRecipe extends Component {
             <div className='modify-recipe'>
                 <Form onSubmit={this.onSubmit}>
                     <HeaderNav className="modify-recipe__header">
-                        <h2 className="modify-recipe__title col-9">
+                        <h2 className="header-nav__title col-9">
                             {creating
                                 ? <FormattedMessage id='recipe.create'/>
                                 : <FormattedMessage id='recipe.edit'/>
                             }
                         </h2>
-                        <div className="modify-recipe__controls col-3">
+                        <div className="header-nav__controls col-3">
                             {creating && <Button className="secondary" onClick={this.handleBack}><FormattedMessage id="common.cancel"/></Button>}
                             {!creating && <Link className="btn secondary" to={`/recipe/${id}`}><FormattedMessage id="common.cancel"/></Link>}
                             <Button type="submit" className="primary"><FormattedMessage id="common.save"/></Button>

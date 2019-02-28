@@ -4,14 +4,6 @@
         margin: 0 -1rem;
         height: 3rem;
     }
-    &__title{
-        margin-top: .2rem;
-        padding-left: .5rem;
-    }
-    &__controls{
-        text-align: right;
-        padding-right: .5rem;
-    }
     &__content{
         height: calc(100vh - 5.5rem);
         overflow: auto;

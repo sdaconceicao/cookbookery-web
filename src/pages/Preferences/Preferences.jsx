@@ -1,35 +1,27 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {FormattedMessage} from 'react-intl';
-import {Form, Select, Button} from 'sad-shared-components';
+import {Form, Button} from 'sad-shared-components';
+
+import HeaderNav from "Components/HeaderNav";
 
 export class Preferences extends Component {
 
-    state = {
-        themeOptions: [
-            {value: 'red', label: 'Red'},
-            {value: 'blue', label: 'Blue'},
-            {value: 'dark', label: 'Dark'}
-        ]
-    };
-
-    onSubmit = (e) =>{
-        console.log("Saving", e);
-    };
-
     render() {
-        const {theme, themeOptions} = this.state;
         return (
             <div className='preferences'>
-                <h1><FormattedMessage id='preferences.title'/></h1>
                 <Form onSubmit={this.onSubmit}>
-                    <Select id="select"
-                                     name="theme"
-                                     options={themeOptions}
-                                     label={<FormattedMessage id='preferences.theme'/>}
-                                     value={theme}/>
-                    <Button type="submit">
-                        <FormattedMessage id='common.save'/>
-                    </Button>
+                    <HeaderNav className="preferences__header">
+                        <h2 className="header-nav__title col-9">
+                            <FormattedMessage id='preferences.title'/>
+                        </h2>
+                        <div className="header-nav__controls col-3">
+                            <Button className="secondary" onClick={this.handleBack}><FormattedMessage id="common.cancel"/></Button>
+                            <Button type="submit" className="primary"><FormattedMessage id="common.save"/></Button>
+                        </div>
+                    </HeaderNav>
+                    <div className="preferences__content">
+
+                    </div>
                 </Form>
             </div>
         );
