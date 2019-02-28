@@ -10,7 +10,10 @@ import './SideNav.scss';
 
 export const SideNav = ({className, handleClose}) => (
     <nav className={`side-nav ${className}`}>
-        <Button className="side-nav__close" onClick={handleClose}><FaClose/></Button>
+        <header className="side-nav__header">
+            <h3>Cookbookery</h3>
+            <Button className="side-nav__close primary" onClick={handleClose}><FaClose/></Button>
+        </header>
         <ul className="side-nav__list">
             <li className="side-nav__list-item"><Link to='/' onClick={handleClose} className="inverted"><FormattedMessage id="menu.recipeList"/></Link></li>
         </ul>

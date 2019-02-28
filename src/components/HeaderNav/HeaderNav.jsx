@@ -9,7 +9,6 @@ export const HeaderNav = ({children, className}) => (
     </header>
 );
 
-
 HeaderNav.propTypes = {
     className: PropTypes.string,
     children: PropTypes.array.isRequired
