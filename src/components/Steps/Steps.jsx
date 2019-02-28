@@ -30,7 +30,7 @@ export const Steps = ({steps, editable, handleAddStep, handleRemoveStep}) => (
 
         </ol>
         {editable &&
-        <Button className="primary"
+        <Button className="primary block"
                       onClick={handleAddStep}>
             <FormattedMessage id="recipe.steps.add"/>
         </Button>

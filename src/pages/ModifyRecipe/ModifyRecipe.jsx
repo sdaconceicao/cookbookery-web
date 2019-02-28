@@ -24,7 +24,16 @@ export class ModifyRecipe extends Component {
             ? this.props.get(this.props.match.params.id).then(recipe=>{
                 this.setState({...recipe, loading: false});
             })
-            : this.setState({loading: false, title: '', desc: '', ingredients:[''], steps:['']});
+            : this.setState({
+                loading: false,
+                title: '',
+                desc: '',
+                ingredients:[''],
+                steps:[''],
+                tags: [],
+                prepTime: 0,
+                cookTime: 0
+            });
     }
 
     onSubmit = (data) => {
@@ -82,55 +91,58 @@ export class ModifyRecipe extends Component {
                             <Button type="submit" className="primary"><FormattedMessage id="common.save"/></Button>
                         </div>
                     </HeaderNav>
-                    <div className="modify-recipe__content">
+                    <div className="modify-recipe__content row">
                         {!loading && <Fragment>
-                        <ImagePicker name="image"
-                                          id="image"
-                                          value={image}
-                                          buttonClassName={'primary'}
-                                          wrapper={true}
-                                          label={<FormattedMessage id="recipe.image"/>}/>
-                        <Input name="title"
-                                    value={title}
-                                    required={true}
-                                    wrapper={true}
-                                    label={<FormattedMessage id="recipe.title"/>}/>
-                        <Tags name="tags"
-                              value={tags}
-                              editable={true}
-                              wrapper={true}
-                              buttonClassName="primary"
-                              label={<FormattedMessage id="recipe.tags"/>}/>
-                        <Duration id="prepTime" name="prepTime"
-                               value={prepTime}
-                               required={true}
-                               wrapper={true}
-                               label={<FormattedMessage id="recipe.prepTime"/>}/>
-                        <Duration id="cookTime" name="cookTime"
-                               value={cookTime}
-                               required={true}
-                               wrapper={true}
-                               label={<FormattedMessage id="recipe.cookTime"/>}/>
-
-                        <RichTextEditor name="desc"
-                                    value={desc}
-                                    required={true}
-                                    wrapper={true}
-                                    label={<FormattedMessage id="recipe.desc"/>}/>
-                        <Fieldset legend={<FormattedMessage id="recipe.ingredients"/>} required={true}>
-                            <Ingredients ingredients={ingredients}
-                                    editable={true}
-                                    handleAddIngredient={this.handleAddIngredient}
-                                    wrapper={true}
-                                    handleRemoveIngredient={this.handleRemoveIngredient} />
-                        </Fieldset>
-                        <Fieldset legend={<FormattedMessage id="recipe.steps"/>} required={true}>
-                            <Steps steps={steps}
-                                    editable={true}
-                                    wrapper={true}
-                                    handleAddStep={this.handleAddStep}
-                                    handleRemoveStep={this.handleRemoveStep}/>
-                        </Fieldset>
+                        <div className="col-12 col-lg-8">
+                            <Input name="title"
+                                        value={title}
+                                        required={true}
+                                        wrapper={true}
+                                        label={<FormattedMessage id="recipe.title"/>}/>
+                            <RichTextEditor name="desc"
+                                            value={desc}
+                                            required={true}
+                                            wrapper={true}
+                                            label={<FormattedMessage id="recipe.desc"/>}/>
+                            <Fieldset legend={<FormattedMessage id="recipe.ingredients"/>} required={true}>
+                                <Ingredients ingredients={ingredients}
+                                             editable={true}
+                                             handleAddIngredient={this.handleAddIngredient}
+                                             wrapper={true}
+                                             handleRemoveIngredient={this.handleRemoveIngredient} />
+                            </Fieldset>
+                            <Fieldset legend={<FormattedMessage id="recipe.steps"/>} required={true}>
+                                <Steps steps={steps}
+                                       editable={true}
+                                       wrapper={true}
+                                       handleAddStep={this.handleAddStep}
+                                       handleRemoveStep={this.handleRemoveStep}/>
+                            </Fieldset>
+                        </div>
+                        <div className="col-12 col-lg-4">
+                            <ImagePicker name="image"
+                                         id="image"
+                                         value={image}
+                                         buttonClassName={'primary'}
+                                         wrapper={true}
+                                         label={<FormattedMessage id="recipe.image"/>}/>
+                            <Tags name="tags"
+                                  value={tags}
+                                  editable={true}
+                                  wrapper={true}
+                                  buttonClassName="primary"
+                                  label={<FormattedMessage id="recipe.tags"/>}/>
+                            <Duration id="prepTime" name="prepTime"
+                                      value={prepTime}
+                                      required={true}
+                                      wrapper={true}
+                                      label={<FormattedMessage id="recipe.prepTime"/>}/>
+                            <Duration id="cookTime" name="cookTime"
+                                      value={cookTime}
+                                      required={true}
+                                      wrapper={true}
+                                      label={<FormattedMessage id="recipe.cookTime"/>}/>
+                        </div>
                         </Fragment>}
                     </div>
                 </Form>

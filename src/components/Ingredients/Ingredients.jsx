@@ -31,7 +31,7 @@ export const Ingredients = ({ingredients, editable, handleAddIngredient, handleR
 
         </ul>
         {editable &&
-            <Button className="primary"
+            <Button className="primary block"
                           onClick={handleAddIngredient}>
                 <FormattedMessage id="recipe.ingredients.add"/>
             </Button>
