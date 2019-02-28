@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {FormattedMessage} from 'react-intl';
@@ -46,12 +46,14 @@ export class ViewRecipe extends Component {
             <div className='view-recipe'>
                 {recipe &&
                     <Fragment>
-                        <Link className="btn primary view-recipe__edit" to={`/recipe/${recipe.id}/edit`}>
-                            <MdEdit/> <FormattedMessage id="recipe.edit"/>
-                        </Link>
-                        <Button className="primary view-recipe__remove" onClick={this.handleRemoveConfirm}>
-                            <MdDelete/>
-                        </Button>
+                        <span className="view-recipe__controls btn-group">
+                            <Link className="btn primary view-recipe__edit" to={`/recipe/${recipe.id}/edit`}>
+                                <MdEdit/>
+                            </Link>
+                            <Button className="primary view-recipe__remove" onClick={this.handleRemoveConfirm}>
+                                <MdDelete/>
+                            </Button>
+                        </span>
                         <RecipeDetails {...recipe}/>
                     </Fragment>
                 }

@@ -1,8 +1,9 @@
 .main-nav{
     background-color: var(--color-primary-hover-bg);
     color: var(--color-primary-text);
+    border-bottom: 2px solid var(--color-white);
     font-size: 1.5rem;
-    line-height: 2.5rem;
+    line-height: calc(var(--app-header-height) - 2px);
     &__menu{
         margin-top: .3rem;
         color: var(--color-primary-text);
@@ -15,7 +16,6 @@
         &-name{
             padding-left: .25rem;
             position: relative;
-            top: .1rem;
             color: var(--color-primary-text);
             &:hover{
                 color: var(--color-primary-text);
@@ -29,5 +29,6 @@
     }
     &__link:hover{
         color: var(--color-primary-text);
+        transition: var(--input-transition);
     }
 }

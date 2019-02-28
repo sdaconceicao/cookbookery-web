@@ -11,7 +11,7 @@ import './MainNav.scss';
 export const MainNav = ({className, handleMenuClick}) => (
     <nav className={`main-nav row ${className}`}>
         <div className="col-9 main-nav__logo">
-            <Button className="main-nav__menu no-style" onClick={handleMenuClick}><MdDehaze/></Button>
+            <Button className="main-nav__menu primary invert" onClick={handleMenuClick}><MdDehaze/></Button>
             <Link to="/" className="main-nav__logo-name">Cookbookery</Link>
         </div>
         <div className="col-3 main-nav__settings">

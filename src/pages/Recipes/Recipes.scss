@@ -12,7 +12,7 @@
         padding-right: .5rem;
     }
     &__content{
-        height: calc(100vh - 5.75rem);
+        height: calc(100vh - 5.75rem - 8px);
         margin: 0 -1rem;
         padding: .5rem 1rem;
         overflow: auto;

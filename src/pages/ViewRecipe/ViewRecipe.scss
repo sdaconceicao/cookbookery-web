@@ -1,13 +1,8 @@
 .view-recipe{
     position: relative;
-    &__edit{
+    &__controls{
         position: absolute;
         top: 1.5rem;
-        right: .5rem;
-    }
-    &__remove{
-        position: absolute;
-        top: 9.5rem;
         right: .5rem;
     }
     .recipe{
