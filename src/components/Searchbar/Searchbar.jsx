@@ -9,7 +9,9 @@ import './Searchbar.scss';
 
 export class Searchbar extends Component {
 
-    state = {};
+    state = {
+        search: ''
+    };
 
     render() {
         const {className} = this.props,
@@ -28,7 +30,7 @@ export class Searchbar extends Component {
 
 Searchbar.propTypes = {
     className: PropTypes.string,
-    onChange: PropTypes.object.isRequired
+    onChange: PropTypes.func.isRequired
 };
 
 Searchbar.defaultProps = {

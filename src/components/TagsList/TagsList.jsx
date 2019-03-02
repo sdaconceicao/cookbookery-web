@@ -4,7 +4,7 @@ import {Badge} from 'reactstrap';
 
 export const TagsList = ({tags}) => (
     <div className='tags-list'>
-        {tags.map(tag=>{
+        {tags && tags.map(tag=>{
             return <Badge key={tag}>{tag}</Badge>
         })}
     </div>

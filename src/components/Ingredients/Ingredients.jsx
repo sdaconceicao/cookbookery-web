@@ -8,7 +8,7 @@ import FaClose from 'react-icons/lib/fa/close';
 export const Ingredients = ({ingredients, editable, handleAddIngredient, handleRemoveIngredient}) => (
     <div className="ingredients">
         <ul className='ingredients-list'>
-            {ingredients.map((ingredient, index)=>{
+            {ingredients && ingredients.map((ingredient, index)=>{
                 return (
                     <li key={ingredient.key} className="ingredient-list__item">
                         {editable

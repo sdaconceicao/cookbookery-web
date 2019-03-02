@@ -3,6 +3,8 @@ import * as recipesMock from 'Mocks/Recipes.mock';
 
 export function apiConfig(client, mockEnabled = false) {
 
+    client.defaults.baseURL = process.env.REACT_APP_BASE_URL;
+
     if (mockEnabled){
         const mock = new MockAdapter(client, {delayResponse: 500});
         mock.onGet('/recipes').reply(200, recipesMock.recipesSuccess)

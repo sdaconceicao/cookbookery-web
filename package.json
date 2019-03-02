@@ -72,9 +72,9 @@
     "whatwg-fetch": "3.0.0"
   },
   "scripts": {
-    "start": "node scripts/start.js",
-    "start:mocks": "node scripts/mock.js --mocks=true",
-    "build": "node scripts/build.js",
+    "start": "node -r dotenv/config scripts/start.js ",
+    "start:mocks": "node scripts/start.js --mocks=true",
+    "build": "node -r dotenv/config scripts/build.js",
     "test": "mocha --reporter progress config/mocha.config.js  \"src/**/*.test.js\" ",
     "test:watch": "npm run test -- --watch",
     "test:jest": "node scripts/test.js --env=jsdom"

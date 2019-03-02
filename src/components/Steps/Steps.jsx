@@ -7,7 +7,7 @@ import FaClose from "react-icons/lib/fa/close";
 export const Steps = ({steps, editable, handleAddStep, handleRemoveStep}) => (
     <div className="steps">
         <ol className='steps-list'>
-            {steps.map((step, index)=>{
+            {steps && steps.map((step, index)=>{
                 return (
                     <li key={step.key} className="step-list__item">
                         {editable
