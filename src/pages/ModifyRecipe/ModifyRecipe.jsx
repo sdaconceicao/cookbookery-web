@@ -127,7 +127,7 @@ export class ModifyRecipe extends Component {
                                          wrapper={true}
                                          label={<FormattedMessage id="recipe.image"/>}/>
                             <Tags name="tags"
-                                  value={tags}
+                                  value={tags || []}
                                   editable={true}
                                   wrapper={true}
                                   buttonClassName="primary"
