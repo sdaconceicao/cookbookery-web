@@ -35,7 +35,7 @@ export class App extends Component {
                             <aside className={`app__sidenav ${sideNavOpen ? 'open' : 'closed'}`}>
                                 <SideNav handleClose={()=>this.handleSideNavOpen(false)}/>
                             </aside>
-                            <main className="app__content">
+                            <main className="app__content" onClick={()=>this.handleSideNavOpen(false)}>
                                 <TransitionGroup component={Fragment}>
                                     <CSSTransition
                                         timeout={{enter: 500, exit: 300}}
