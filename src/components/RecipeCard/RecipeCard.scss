@@ -10,7 +10,11 @@
         border-top: 2px solid var(--color-secondary-border);
         border-radius: 0 0 .5rem .5rem;
     }
-    &__title, &__desc{
+    &__title{
+        @include ellipsis();
+    }
+    &__desc p{
+        margin-bottom: 0;
         @include ellipsis();
     }
     &__image{

@@ -12,7 +12,7 @@ export const RecipeCard = (props) => {
             <BackgroundImage className="recipe-card__image" alt={title} src={image}/>
             <div className="recipe-card__content">
                 <h4 className="recipe-card__title">{title}</h4>
-                <div className="recipe-card__desc">{desc}</div>
+                <div className="recipe-card__desc" dangerouslySetInnerHTML={{__html:desc}}></div>
             </div>
         </div>
     );

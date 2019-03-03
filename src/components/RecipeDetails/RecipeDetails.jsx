@@ -14,7 +14,7 @@ export const RecipeDetails = ({title, desc, image, ingredients, servingSize, pre
     <article className="recipe">
         <BackgroundImage src={image} className="recipe__image"/>
         <h2>{title}</h2>
-        <div>{desc}</div>
+        <div dangerouslySetInnerHTML={{__html:desc}}></div>
         <TagsList tags={tags}/>
         <div><FormattedMessage id={'recipe.prepTime'}/> <DurationView value={prepTime}/></div>
         <div><FormattedMessage id={'recipe.cookTime'}/> <DurationView value={cookTime}/></div>

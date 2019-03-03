@@ -16,6 +16,7 @@ export class ModifyRecipe extends Component {
     state = {
         loading: true,
         saving: false,
+        error: false,
         creating: !this.props.match.params.id
     };
 
@@ -39,9 +40,12 @@ export class ModifyRecipe extends Component {
     onSubmit = (data) => {
         const {save, history} = this.props;
         this.setState({saving: true});
-        save(data).then((recipe) => {
+        save(data).then((response) => {
+            history.push(`/recipe/${response.data.id}`)
+        }).catch(error=>{
+            this.setState({error});
+        }).finally(()=>{
             this.setState({saving: false});
-            history.push(`/recipe/${recipe.id}`)
         });
     };
 
@@ -74,7 +78,7 @@ export class ModifyRecipe extends Component {
     };
 
     render() {
-        const {id, creating, image, loading, prepTime, cookTime, desc, title, tags, ingredients, steps} = this.state;
+        const {id, creating, image, loading, prepTime, cookTime, servingSize, desc, title, tags, ingredients, steps} = this.state;
         return (
             <div className='modify-recipe'>
                 <Form onSubmit={this.onSubmit}>
@@ -94,6 +98,7 @@ export class ModifyRecipe extends Component {
                     <div className="modify-recipe__content row">
                         {!loading && <Fragment>
                         <div className="col-12 col-lg-8">
+                            <Input type="hidden" name="id" value={id}/>
                             <Input name="title"
                                         value={title}
                                         required={true}
@@ -104,6 +109,11 @@ export class ModifyRecipe extends Component {
                                             required={true}
                                             wrapper={true}
                                             label={<FormattedMessage id="recipe.desc"/>}/>
+                            <Input name="servingSize"
+                                   value={servingSize}
+                                   required={true}
+                                   wrapper={true}
+                                   label={<FormattedMessage id="recipe.servingSize"/>}/>
                             <Fieldset legend={<FormattedMessage id="recipe.ingredients"/>} required={true}>
                                 <Ingredients ingredients={ingredients}
                                              editable={true}
@@ -142,6 +152,7 @@ export class ModifyRecipe extends Component {
                                       required={true}
                                       wrapper={true}
                                       label={<FormattedMessage id="recipe.cookTime"/>}/>
+
                         </div>
                         </Fragment>}
                     </div>

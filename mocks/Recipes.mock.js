@@ -13,9 +13,9 @@ export const recipesSuccess = {
             prepTime: 60,
             cookTime: 120,
             tags: [
-                'dinner',
-                'fast',
-                'easy'
+                {id: 1, value:'dinner'},
+                {id: 1, value:'fast'},
+                {id: 1, value:'easy'}
             ],
             steps: [
                 {id: 1, desc: 'Fill a pot with water, and add salt'},
@@ -36,10 +36,10 @@ export const recipesSuccess = {
             prepTime: 60,
             cookTime: 120,
             tags: [
-                'breakfast',
-                'eggs',
-                'fast',
-                'easy'
+                {id: 1, value:'breakfast'},
+                {id: 2, value:'eggs'},
+                {id: 3, value:'fast'},
+                {id: 4, value:'easy'}
             ],
             steps: [
                 {id: 1, desc: 'Fry the bacon in a pan on medium high heat until crispy. Put aside on a plate. Leave the rendered fat in the pan.'},

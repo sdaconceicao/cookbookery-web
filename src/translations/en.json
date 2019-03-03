@@ -20,6 +20,7 @@
   "recipe.steps.add": "Add Step",
   "recipe.image": "Image",
   "recipe.tags": "Tags",
+  "recipe.servingSize": "Serving Size",
   "recipe.remove.title": "Remove Recipe",
   "recipe.remove.desc": "Are you sure you want to remove this recipe?"
 }
