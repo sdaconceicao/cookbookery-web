@@ -9,20 +9,20 @@ export const Steps = ({steps, editable, handleAddStep, handleRemoveStep}) => (
         <ol className='steps-list'>
             {steps && steps.map((step, index)=>{
                 return (
-                    <li key={step.key} className="step-list__item">
+                    <li key={step.id} className="step-list__item">
                         {editable
                             ? <Fragment>
                                 <RichTextEditor name="step"
                                                      index={index}
                                                      className="with-button"
-                                                 value={step.value}/>
+                                                 value={step.desc}/>
                                 <Button type="button"
                                               className="with-input primary"
                                               onClick={()=>handleRemoveStep(index)}>
                                     <FaClose/>
                                 </Button>
                             </Fragment>
-                            : step.value
+                            : step.desc
                         }
                     </li>
                 )

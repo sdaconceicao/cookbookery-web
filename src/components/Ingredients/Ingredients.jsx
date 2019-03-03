@@ -10,20 +10,20 @@ export const Ingredients = ({ingredients, editable, handleAddIngredient, handleR
         <ul className='ingredients-list'>
             {ingredients && ingredients.map((ingredient, index)=>{
                 return (
-                    <li key={ingredient.key} className="ingredient-list__item">
+                    <li key={ingredient.id} className="ingredient-list__item">
                         {editable
                             ? <Fragment>
                                 <Input name="ingredient"
                                              className="with-button"
                                              index={index}
-                                             value={ingredient.value}/>
+                                             value={ingredient.desc}/>
                                 <Button type="button"
                                               className="with-input primary"
                                               onClick={()=>handleRemoveIngredient(index)}>
                                     <FaClose/>
                                 </Button>
                             </Fragment>
-                            : ingredient.value
+                            : ingredient.desc
                         }
                     </li>
                 )
