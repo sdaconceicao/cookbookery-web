@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
-import {Button, RichTextEditor} from 'sad-shared-components';
+import {Button, RichTextEditor, Input} from 'sad-shared-components';
 import {FormattedMessage} from "react-intl";
 import FaClose from "react-icons/lib/fa/close";
 
@@ -12,7 +12,11 @@ export const Steps = ({steps, editable, handleAddStep, handleRemoveStep}) => (
                     <li key={step.id} className="step-list__item">
                         {editable
                             ? <Fragment>
-                                <RichTextEditor name="step"
+                                {!isNaN(step.id) && <Input name="step.id"
+                                       index={index}
+                                       type="hidden"
+                                       value={step.id}/>}
+                                <RichTextEditor name="step.desc"
                                                      index={index}
                                                      className="with-button"
                                                  value={step.desc}/>

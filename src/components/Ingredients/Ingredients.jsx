@@ -13,7 +13,11 @@ export const Ingredients = ({ingredients, editable, handleAddIngredient, handleR
                     <li key={ingredient.id} className="ingredient-list__item">
                         {editable
                             ? <Fragment>
-                                <Input name="ingredient"
+                                {!isNaN(ingredient.id) && <Input name="ingredient.id"
+                                       type="hidden"
+                                       index={index}
+                                       value={ingredient.id} />}
+                                <Input name="ingredient.desc"
                                              className="with-button"
                                              index={index}
                                              value={ingredient.desc}/>
