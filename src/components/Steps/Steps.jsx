@@ -12,11 +12,11 @@ export const Steps = ({steps, editable, handleAddStep, handleRemoveStep}) => (
                     <li key={step.id} className="step-list__item">
                         {editable
                             ? <Fragment>
-                                {!isNaN(step.id) && <Input name="step.id"
+                                {!isNaN(step.id) && <Input name="steps.id"
                                        index={index}
                                        type="hidden"
                                        value={step.id}/>}
-                                <RichTextEditor name="step.desc"
+                                <RichTextEditor name="steps.desc"
                                                      index={index}
                                                      className="with-button"
                                                  value={step.desc}/>
@@ -26,7 +26,7 @@ export const Steps = ({steps, editable, handleAddStep, handleRemoveStep}) => (
                                     <FaClose/>
                                 </Button>
                             </Fragment>
-                            : step.desc
+                            : <div dangerouslySetInnerHTML={{__html: step.desc}}></div>
                         }
                     </li>
                 )
