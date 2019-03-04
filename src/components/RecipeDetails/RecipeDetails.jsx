@@ -2,11 +2,10 @@ import React from 'react';
 import {FormattedMessage} from 'react-intl';
 import PropTypes from 'prop-types';
 
-import {BackgroundImage, DurationView} from 'sad-shared-components';
+import {BackgroundImage, DurationView, TagsList} from 'sad-shared-components';
 
 import Ingredients from 'Components/Ingredients';
 import Steps from 'Components/Steps';
-import TagsList from 'Components/TagsList';
 
 import './RecipeDetails.scss';
 
