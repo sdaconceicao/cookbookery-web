@@ -15,7 +15,18 @@ export const SideNav = ({className, handleClose}) => (
             <Button className="side-nav__close primary" onClick={handleClose}><FaClose/></Button>
         </header>
         <ul className="side-nav__list">
-            <li className="side-nav__list-item"><Link to='/' onClick={handleClose} className="inverted"><FormattedMessage id="menu.recipeList"/></Link></li>
+            <li className="side-nav__list-item">
+                <Link to='/'
+                      onClick={handleClose}
+                      className="inverted"><FormattedMessage id="menu.recipeList"/>
+                </Link>
+            </li>
+            <li className="side-nav__list-item">
+                <Link to='/recipe/add'
+                      onClick={handleClose}
+                      className="inverted"><FormattedMessage id="recipe.add"/>
+                </Link>
+            </li>
         </ul>
     </nav>
 );
