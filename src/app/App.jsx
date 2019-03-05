@@ -4,11 +4,11 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import {IntlProvider} from "react-intl";
 import {TransitionGroup, CSSTransition} from 'react-transition-group';
 import {enMessages as sharedEnMessages} from 'sad-shared-components';
+import {enMessages} from 'cookbookery-shared';
 
 import MainNav from './MainNav';
 import Pages from 'Pages';
 import SideNav from "./SideNav"
-import * as enMessages from '../translations/en.json';
 
 import './App.scss';
 

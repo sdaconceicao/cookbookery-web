@@ -4,7 +4,7 @@ import axios from 'axios';
 import './styles/index.scss'; //Need to load bootstrap styles before page/component styles
 
 
-import {apiConfig} from './api';
+import {apiConfig} from 'cookbookery-shared';
 import {App} from './app';
 
 //MOCKS_ENABLED is set by params passed into build

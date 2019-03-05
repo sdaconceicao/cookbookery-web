@@ -83,12 +83,13 @@ module.exports = {
                 ],
             include: [
                 paths.appSrc,
-                paths.node + '/sad-shared-components'
+                paths.node + '/sad-shared-components',
+                paths.node + '/cookbookery-shared'
             ]
             },
             {
                 test: /\.(js|jsx)$/,
-                exclude: /node_modules\/(?!(sad-shared-components)\/).*/,
+                exclude: /node_modules\/(?!(sad-shared-components|cookbookery-shared)\/).*/,
                 loader: 'babel-loader'
             },
             {
