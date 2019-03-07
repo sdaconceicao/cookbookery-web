@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import FaClose from 'react-icons/lib/fa/close';
+import FaList from 'react-icons/lib/fa/list-ul';
+import FaPlus from 'react-icons/lib/fa/plus-square';
 import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router-dom';
 
@@ -18,13 +20,13 @@ export const SideNav = ({className, handleClose}) => (
             <li className="side-nav__list-item">
                 <Link to='/'
                       onClick={handleClose}
-                      className="inverted"><FormattedMessage id="menu.recipeList"/>
+                      className="inverted"><FaList/> <FormattedMessage id="menu.recipeList"/>
                 </Link>
             </li>
             <li className="side-nav__list-item">
                 <Link to='/recipe/add'
                       onClick={handleClose}
-                      className="inverted"><FormattedMessage id="recipe.add"/>
+                      className="inverted"><FaPlus/> <FormattedMessage id="recipe.add"/>
                 </Link>
             </li>
         </ul>

@@ -23,7 +23,11 @@
         transition: var(--input-transition);
         a {
             display: block;
-            padding: 1rem;
+            padding: .5rem;
+            svg{
+                margin-top: -3px;
+                margin-right: .5rem;
+            }
         }
         &:hover{
             background-color: var(--color-primary-dark);
