@@ -49,7 +49,7 @@ export class Recipes extends Component {
                 <div className="recipes__content">
                     {!loading &&
                         <RecipeList recipes={recipes} render={(recipe) => (
-                            <RecipeCard title={recipe.title} desc={recipe.desc} image={recipe.image}
+                            <RecipeCard title={recipe.title} desc={recipe.desc} image={recipe.imageFullPath}
                                         onClick={() => this.handleClick(recipe.id)}/>
                         )}/>
                     }

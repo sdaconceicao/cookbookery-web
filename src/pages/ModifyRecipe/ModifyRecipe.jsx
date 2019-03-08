@@ -78,7 +78,7 @@ export class ModifyRecipe extends Component {
     };
 
     render() {
-        const {id, creating, image, loading, prepTime, cookTime, servingSize, desc, title, tags, ingredients, steps} = this.state;
+        const {id, creating, imageFullPath, loading, prepTime, cookTime, servingSize, desc, title, tags, ingredients, steps} = this.state;
         return (
             <div className='modify-recipe'>
                 <Form onSubmit={this.onSubmit}>
@@ -132,7 +132,7 @@ export class ModifyRecipe extends Component {
                         <div className="col-12 col-lg-4">
                             <ImagePicker name="image"
                                          id="image"
-                                         value={image}
+                                         value={imageFullPath}
                                          buttonClassName={'primary'}
                                          wrapper={true}
                                          label={<FormattedMessage id="recipe.image"/>}/>

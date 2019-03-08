@@ -9,9 +9,9 @@ import Steps from 'Components/Steps';
 
 import './RecipeDetails.scss';
 
-export const RecipeDetails = ({title, desc, image, ingredients, servingSize, prepTime, cookTime, tags, steps}) => (
+export const RecipeDetails = ({title, desc, imageFullPath, ingredients, servingSize, prepTime, cookTime, tags, steps}) => (
     <article className="recipe">
-        <BackgroundImage src={image} className="recipe__image"/>
+        <BackgroundImage src={imageFullPath} className="recipe__image"/>
         <h2>{title}</h2>
         <div dangerouslySetInnerHTML={{__html:desc}}></div>
         <div><FormattedMessage id={'recipe.servingSize'}/> {servingSize}</div>

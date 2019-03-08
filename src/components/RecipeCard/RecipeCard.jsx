@@ -21,6 +21,7 @@ export const RecipeCard = (props) => {
 RecipeCard.propTypes = {
     title: PropTypes.string.isRequired,
     desc: PropTypes.string,
+    image: PropTypes.string
 };
 
 export default RecipeCard;
