@@ -30,8 +30,13 @@ export class Recipes extends Component {
         this.props.history.push(`/recipe/${id}`)
     };
 
-    handleSearch = (search) =>{
-
+    handleSearch = (searchQuery) =>{
+        this.props.getList(`?searchQuery=${searchQuery}`)
+            .then(response=>{
+                this.setState({loading: false, recipes: response.data.recipes});
+            }).catch(error=>{
+                console.error("ERROR in retrieving recipes", error);
+            })
     };
 
     render() {
@@ -44,12 +49,12 @@ export class Recipes extends Component {
                         <FormattedMessage id='recipes.title'/>
                     </h2>
                     <Searchbar className="recipes__search col-md-4 col-6"
-                               onChange={this.handleSearch}/>
+                               onSearch={this.handleSearch}/>
                 </HeaderNav>
                 <div className="recipes__content">
                     {!loading &&
                         <RecipeList recipes={recipes} render={(recipe) => (
-                            <RecipeCard title={recipe.title} desc={recipe.desc} image={recipe.imageFullPath}
+                            <RecipeCard title={recipe.title} desc={recipe.desc} image={recipe.image}
                                         onClick={() => this.handleClick(recipe.id)}/>
                         )}/>
                     }

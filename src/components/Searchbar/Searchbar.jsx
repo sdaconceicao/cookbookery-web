@@ -13,15 +13,29 @@ export class Searchbar extends Component {
         search: ''
     };
 
+    onChange = (e) =>{
+        this.setState({search:e.value});
+    };
+
+    onKeyDown = (e) =>{
+        if (e.keyCode === 13 && this.props.onSearch) {
+            this.props.onSearch(this.state.search);
+        }
+    };
+
     render() {
-        const {className} = this.props,
+        const {className, onSearch} = this.props,
             {search} = this.state;
         return (
             <div className={`searchbar ${className}`}>
-                <Input id="search" name="search" className="with-button"
+                <Input id="search"
+                       name="search"
+                       className="with-button"
                        value={search}
+                       onChange={this.onChange}
+                       onKeyDown={this.onKeyDown}
                        placeholder={"Search Recipes..."} />
-                <Button className="with-input primary"><FaSearch/></Button>
+                <Button className="with-input primary" onClick={()=>onSearch(search)}><FaSearch/></Button>
                 <Button className="primary ml-1"><FaFilter/></Button>
             </div>
         );
@@ -30,7 +44,7 @@ export class Searchbar extends Component {
 
 Searchbar.propTypes = {
     className: PropTypes.string,
-    onChange: PropTypes.func.isRequired
+    onSearch: PropTypes.func.isRequired
 };
 
 Searchbar.defaultProps = {
