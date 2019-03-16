@@ -84,7 +84,6 @@ export class ModifyRecipe extends Component {
 
     render() {
         const {id, form, creating, image, loading, prepTime, cookTime, servingSize, desc, title, tags, ingredients, steps} = this.state;
-        console.log("REF", form);
         return (
             <div className='modify-recipe'>
                 <HeaderNav className="modify-recipe__header">
