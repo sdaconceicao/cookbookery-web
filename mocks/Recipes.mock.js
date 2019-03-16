@@ -13,15 +13,15 @@ export const recipesSuccess = {
             prepTime: 60,
             cookTime: 120,
             tags: [
-                {id: 1, value:'dinner'},
-                {id: 1, value:'fast'},
-                {id: 1, value:'easy'}
+                {id: 11, value:'dinner'},
+                {id: 12, value:'fast'},
+                {id: 13, value:'easy'}
             ],
             steps: [
-                {id: 1, desc: 'Fill a pot with water, and add salt'},
-                {id: 2, desc: 'Bring water to a boil'},
-                {id: 3, desc: 'Place pasta in pot and cook for 5 minutes'},
-                {id: 4, desc: 'Drain pasta and serve'}
+                {id: 21, desc: 'Fill a pot with water, and add salt'},
+                {id: 22, desc: 'Bring water to a boil'},
+                {id: 23, desc: 'Place pasta in pot and cook for 5 minutes'},
+                {id: 24, desc: 'Drain pasta and serve'}
             ]
         },
         {
@@ -36,15 +36,15 @@ export const recipesSuccess = {
             prepTime: 60,
             cookTime: 120,
             tags: [
-                {id: 1, value:'breakfast'},
-                {id: 2, value:'eggs'},
-                {id: 3, value:'fast'},
-                {id: 4, value:'easy'}
+                {id: 11, value:'breakfast'},
+                {id: 12, value:'eggs'},
+                {id: 13, value:'fast'},
+                {id: 14, value:'easy'}
             ],
             steps: [
-                {id: 1, desc: 'Fry the bacon in a pan on medium high heat until crispy. Put aside on a plate. Leave the rendered fat in the pan.'},
-                {id: 2, desc: 'Use the same pan to fry the eggs. Place it over medium heat and crack your eggs into the bacon grease (you can also crack them into a measuring cup and carefully pour into the pan to avoid splattering of hot grease).'},
-                {id: 3, desc: 'Cook the eggs any way you like them. For sunny side up - leave the eggs to fry on one side and cover the pan with a lid to make sure they get cooked on top. For eggs cooked over easy - flip the eggs over after a few minutes and cook for another minute. Cut the cherry tomatoes in half and fry them at the same time.'}
+                {id: 21, desc: 'Fry the bacon in a pan on medium high heat until crispy. Put aside on a plate. Leave the rendered fat in the pan.'},
+                {id: 22, desc: 'Use the same pan to fry the eggs. Place it over medium heat and crack your eggs into the bacon grease (you can also crack them into a measuring cup and carefully pour into the pan to avoid splattering of hot grease).'},
+                {id: 23, desc: 'Cook the eggs any way you like them. For sunny side up - leave the eggs to fry on one side and cover the pan with a lid to make sure they get cooked on top. For eggs cooked over easy - flip the eggs over after a few minutes and cook for another minute. Cut the cherry tomatoes in half and fry them at the same time.'}
             ]
         }
     ]

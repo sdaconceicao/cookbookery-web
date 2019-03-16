@@ -6,13 +6,15 @@ import {Link} from 'react-router-dom';
 
 import {Button} from 'sad-shared-components';
 
+import * as Logo from 'Assets/Logo.svg'
+
 import './MainNav.scss';
 
 export const MainNav = ({className, handleMenuClick}) => (
     <nav className={`main-nav row ${className}`}>
         <div className="col-9 main-nav__logo">
             <Button className="main-nav__menu primary invert" onClick={handleMenuClick}><MdDehaze/></Button>
-            <Link to="/" className="main-nav__logo-name">Cookbookery</Link>
+            <Link to="/"><img className="main-nav__logo-name" alt="Logo" src={Logo}/></Link>
         </div>
         <div className="col-3 main-nav__settings">
             <Link to='/preferences' className="main-nav__link"><MdSettings/></Link>

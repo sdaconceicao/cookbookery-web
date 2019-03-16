@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import "@babel/polyfill";
 import './styles/index.scss'; //Need to load bootstrap styles before page/component styles
 
 

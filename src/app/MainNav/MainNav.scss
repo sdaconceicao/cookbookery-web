@@ -16,12 +16,10 @@
         &-name{
             padding-left: .25rem;
             position: relative;
-            color: var(--color-primary-text);
-            &:hover{
-                color: var(--color-primary-text);
-                text-decoration: none;
-            }
+            height: 40px;
+            margin-top: -.5rem;
         }
+
     }
     &__settings{
         padding-right: .25rem;
