@@ -100,7 +100,7 @@ export class ModifyRecipe extends Component {
                         <Button type="button" onClick={this.handleSubmit} className="primary"><FormattedMessage id="common.save"/></Button>
                     </div>
                 </HeaderNav>
-                <Form ref={form}>
+                <Form ref={form} onSubmit={this.onSubmit}>
                     <div className="modify-recipe__content row">
                         {!loading && <Fragment>
                         <div className="col-12 col-lg-8">
