@@ -17,7 +17,8 @@ export class ModifyRecipe extends Component {
         loading: true,
         saving: false,
         error: false,
-        creating: !this.props.match.params.id
+        creating: !this.props.match.params.id,
+        form: React.createRef()
     };
 
     componentDidMount(){
@@ -36,6 +37,10 @@ export class ModifyRecipe extends Component {
                 cookTime: 0
             });
     }
+
+    handleSubmit = (e) =>{
+        this.state.form.current.onSubmit(e);
+    };
 
     onSubmit = (data) => {
         const {save, history} = this.props;
@@ -78,23 +83,24 @@ export class ModifyRecipe extends Component {
     };
 
     render() {
-        const {id, creating, image, loading, prepTime, cookTime, servingSize, desc, title, tags, ingredients, steps} = this.state;
+        const {id, form, creating, image, loading, prepTime, cookTime, servingSize, desc, title, tags, ingredients, steps} = this.state;
+        console.log("REF", form);
         return (
             <div className='modify-recipe'>
-                <Form onSubmit={this.onSubmit}>
-                    <HeaderNav className="modify-recipe__header">
-                        <h2 className="header-nav__title col-md-9 col-6">
-                            {creating
-                                ? <FormattedMessage id='recipe.create'/>
-                                : <FormattedMessage id='recipe.edit'/>
-                            }
-                        </h2>
-                        <div className="header-nav__controls col-md-3 col-6">
-                            {creating && <Button className="secondary" onClick={this.handleBack}><FormattedMessage id="common.cancel"/></Button>}
-                            {!creating && <Link className="btn secondary" to={`/recipe/${id}`}><FormattedMessage id="common.cancel"/></Link>}
-                            <Button type="submit" className="primary"><FormattedMessage id="common.save"/></Button>
-                        </div>
-                    </HeaderNav>
+                <HeaderNav className="modify-recipe__header">
+                    <h2 className="header-nav__title col-md-9 col-6">
+                        {creating
+                            ? <FormattedMessage id='recipe.create'/>
+                            : <FormattedMessage id='recipe.edit'/>
+                        }
+                    </h2>
+                    <div className="header-nav__controls col-md-3 col-6">
+                        {creating && <Button className="secondary" onClick={this.handleBack}><FormattedMessage id="common.cancel"/></Button>}
+                        {!creating && <Link className="btn secondary" to={`/recipe/${id}`}><FormattedMessage id="common.cancel"/></Link>}
+                        <Button type="button" onClick={this.handleSubmit} className="primary"><FormattedMessage id="common.save"/></Button>
+                    </div>
+                </HeaderNav>
+                <Form ref={form}>
                     <div className="modify-recipe__content row">
                         {!loading && <Fragment>
                         <div className="col-12 col-lg-8">
