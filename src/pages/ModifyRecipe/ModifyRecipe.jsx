@@ -94,8 +94,8 @@ export class ModifyRecipe extends Component {
                         }
                     </h2>
                     <div className="header-nav__controls col-md-3 col-6">
-                        {creating && <Button className="secondary" onClick={this.handleBack}><FormattedMessage id="common.cancel"/></Button>}
-                        {!creating && <Link className="btn secondary" to={`/recipe/${id}`}><FormattedMessage id="common.cancel"/></Link>}
+                        {creating && <Button className="tertiary" onClick={this.handleBack}><FormattedMessage id="common.cancel"/></Button>}
+                        {!creating && <Link className="btn tertiary" to={`/recipe/${id}`}><FormattedMessage id="common.cancel"/></Link>}
                         <Button type="button" onClick={this.handleSubmit} className="primary"><FormattedMessage id="common.save"/></Button>
                     </div>
                 </HeaderNav>
@@ -103,34 +103,12 @@ export class ModifyRecipe extends Component {
                       ref={form}
                       onSubmit={this.onSubmit}>
                     {!loading && <Fragment>
-                    <div className="col-12 col-lg-8">
+                    <div className="col-12 col-lg-4">
                         <Input type="hidden" name="id" value={id}/>
                         <Input name="title"
-                                value={title}
-                                required={true}
-                                label={<FormattedMessage id="recipe.title"/>}/>
-                        <RichTextEditor name="desc"
-                                        value={desc}
-                                        required={true}
-                                        label={<FormattedMessage id="recipe.desc"/>}/>
-                        <Input name="servingSize"
-                               value={servingSize}
+                               value={title}
                                required={true}
-                               label={<FormattedMessage id="recipe.servingSize"/>}/>
-                        <Fieldset legend={<FormattedMessage id="recipe.ingredients"/>} required={true}>
-                            <Ingredients ingredients={ingredients}
-                                         editable={true}
-                                         handleAddIngredient={this.handleAddIngredient}
-                                         handleRemoveIngredient={this.handleRemoveIngredient} />
-                        </Fieldset>
-                        <Fieldset legend={<FormattedMessage id="recipe.steps"/>} required={true}>
-                            <Steps steps={steps}
-                                   editable={true}
-                                   handleAddStep={this.handleAddStep}
-                                   handleRemoveStep={this.handleRemoveStep}/>
-                        </Fieldset>
-                    </div>
-                    <div className="col-12 col-lg-4">
+                               label={<FormattedMessage id="recipe.title"/>}/>
                         <ImagePicker name="image"
                                      id="image"
                                      value={image}
@@ -144,13 +122,34 @@ export class ModifyRecipe extends Component {
                                   value={cookTime}
                                   required={true}
                                   label={<FormattedMessage id="recipe.cookTime"/>}/>
+                        <Input name="servingSize"
+                               value={servingSize}
+                               required={true}
+                               label={<FormattedMessage id="recipe.servingSize"/>}/>
                         <Tags name="tags"
                               value={tags || []}
                               editable={true}
                               buttonClassName="primary"
                               label={<FormattedMessage id="recipe.tags"/>}/>
+                    </div>
+                    <div className="col-12 col-lg-8">
 
-
+                        <RichTextEditor name="desc"
+                                        value={desc}
+                                        required={true}
+                                        label={<FormattedMessage id="recipe.desc"/>}/>
+                        <Fieldset legend={<FormattedMessage id="recipe.ingredients"/>} required={true}>
+                            <Ingredients ingredients={ingredients}
+                                         editable={true}
+                                         handleAddIngredient={this.handleAddIngredient}
+                                         handleRemoveIngredient={this.handleRemoveIngredient} />
+                        </Fieldset>
+                        <Fieldset legend={<FormattedMessage id="recipe.steps"/>} required={true}>
+                            <Steps steps={steps}
+                                   editable={true}
+                                   handleAddStep={this.handleAddStep}
+                                   handleRemoveStep={this.handleRemoveStep}/>
+                        </Fieldset>
                     </div>
                     </Fragment>}
                     {loading && <Spinner size='xl'/>}

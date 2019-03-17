@@ -16,15 +16,20 @@
         margin: 0 -1rem;
         padding: .5rem 1rem;
         overflow: auto;
+        display: flex;
     }
     .searchbar{
         text-align: right;
+    }
+    .recipe-list{
+        width: 100%;
     }
     .recipe-list__item{
         display: inline-block;
         width: calc(33.3% - 1rem);
         margin: .5rem 1rem 0 0;
         vertical-align: top;
+
     }
     .recipe-card{
         cursor: pointer;

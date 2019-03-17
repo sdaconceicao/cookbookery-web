@@ -4,6 +4,8 @@ import {FormattedMessage} from 'react-intl';
 import {Link} from "react-router-dom";
 import FaPlus from "react-icons/lib/fa/plus-square";
 
+import {Spinner} from 'sad-shared-components';
+
 import RecipeList from 'Components/RecipeList';
 import RecipeCard from "Components/RecipeCard";
 import Searchbar from 'Components/Searchbar';
@@ -52,11 +54,12 @@ export class Recipes extends Component {
                                onSearch={this.handleSearch}/>
                 </HeaderNav>
                 <div className="recipes__content">
-                    {!loading &&
-                        <RecipeList recipes={recipes} render={(recipe) => (
+                    {!loading
+                        ? <RecipeList recipes={recipes} render={(recipe) => (
                             <RecipeCard title={recipe.title} desc={recipe.desc} image={recipe.image}
                                         onClick={() => this.handleClick(recipe.id)}/>
                         )}/>
+                        : <Spinner size="xl"/>
                     }
                 </div>
             </div>

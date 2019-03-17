@@ -13,7 +13,7 @@ import './SideNav.scss';
 export const SideNav = ({className, handleClose}) => (
     <nav className={`side-nav ${className}`}>
         <header className="side-nav__header">
-            <h3>Cookbookery</h3>
+            <h3><FormattedMessage id="menu.title"/></h3>
             <Button className="side-nav__close primary" onClick={handleClose}><FaClose/></Button>
         </header>
         <ul className="side-nav__list">
