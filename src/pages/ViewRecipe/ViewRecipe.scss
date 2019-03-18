@@ -1,3 +1,5 @@
+@import '~sad-shared-components/src/styles/utilities';
+
 .view-recipe{
     position: relative;
     &__controls{
@@ -7,5 +9,28 @@
     }
     .recipe{
         margin-top: -1rem;
+        &__title{
+            margin-top: .5rem;
+        }
+        &__description p:last-child{
+            margin-bottom: 0;
+        }
+        &__image {
+            height: 200px;
+            margin: 0 -.95rem .5rem;
+            background-repeat: repeat-y;
+            background-position: center;
+            background-size: cover;
+            background-color: var(--color-input-button);
+        }
+
+    }
+    @include media-breakpoint-up(sm) {
+        .image-col {
+            background-color: var(--color-tertiary);
+        }
+        &{
+            height: 100%;
+        }
     }
 }
