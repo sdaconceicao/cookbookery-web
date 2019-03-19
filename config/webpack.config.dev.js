@@ -5,6 +5,7 @@ const webpack = require('webpack'),
     CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin'),
     InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin'),
     WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin'),
+    CopyWebpackPlugin = require('copy-webpack-plugin'),
     eslintFormatter = require('react-dev-utils/eslintFormatter'),
     getClientEnvironment = require('./env'),
     publicUrl = '',
@@ -32,7 +33,7 @@ module.exports = {
     output: {
         path:  paths.appBuild,
         pathinfo: true,
-        filename: 'static/js/[name].bundle.js',
+        filename: 'js/[name].bundle.js',
         publicPath: publicPath
     },
     resolve: {
@@ -94,10 +95,10 @@ module.exports = {
                 loader: 'babel-loader'
             },
             {
-                test: /\.svg$/,
+                test: /\.(svg|png)$/,
                 loader: 'file-loader',
                 query: {
-                    name: 'static/media/[name].[hash:8].[ext]'
+                    name: 'assets/[name].[ext]'
                 }
             },
             {
@@ -138,6 +139,12 @@ module.exports = {
         new webpack.DefinePlugin({MOCKS_ENABLED: (process.argv.some(arg => arg.indexOf('mocks=true') > 1 ) || false)}),
         new webpack.HotModuleReplacementPlugin(),
         new CaseSensitivePathsPlugin(),
+        new CopyWebpackPlugin([
+            // relative path is from src
+            { from: paths.appSrc+'/assets/favicon-16x16.png', to:  paths.appBuild+'/assets/favicon-16x16.png'},
+            { from: paths.appSrc+'/assets/favicon-32x32.png', to:  paths.appBuild+'/assets/favicon-32x32.png'},
+            { from: paths.appSrc+'/assets/favicon.svg', to:  paths.appBuild+'/assets/favicon.svg'}
+        ]),
         new WatchMissingNodeModulesPlugin(paths.appNodeModules)
     ],
     node: {
