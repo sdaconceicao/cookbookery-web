@@ -57,7 +57,9 @@ export class ModifyRecipe extends Component {
     handleAddIngredient = () =>{
         const {ingredients} = this.state;
         ingredients.push({id: `temp-${Math.floor(Math.random() * 1000+1)}`, desc: ''});
-        this.setState({ingredients});
+        this.setState({ingredients}, ()=>{
+
+        });
     };
 
     handleAddStep = () =>{
