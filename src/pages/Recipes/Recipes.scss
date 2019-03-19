@@ -1,3 +1,5 @@
+@import '~sad-shared-components/src/styles/utilities';
+
 .recipes{
     height: 100%;
     &__title{
@@ -24,13 +26,6 @@
     .recipe-list{
         width: 100%;
     }
-    .recipe-list__item{
-        display: inline-block;
-        width: calc(33.3% - 1rem);
-        margin: .5rem 1rem 0 0;
-        vertical-align: top;
-
-    }
     .recipe-card{
         cursor: pointer;
         &:hover .recipe-card__content{
@@ -40,4 +35,27 @@
         }
     }
 
+    @include media-breakpoint-up(sm) {
+        .recipe-list__item {
+            display: inline-block;
+            width: calc(50% - 1rem);
+            margin: .5rem 1rem 0 0;
+            vertical-align: top;
+        }
+    }
+    @include media-breakpoint-up(md) {
+        .recipe-list__item {
+            width: calc(33.3% - 1rem);
+        }
+    }
+    @include media-breakpoint-up(lg) {
+        .recipe-list__item {
+            width: calc(25% - 1rem);
+        }
+    }
+    @include media-breakpoint-down(xs) {
+        .recipe-list__item {
+
+        }
+    }
 }
