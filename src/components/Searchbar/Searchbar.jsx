@@ -36,7 +36,7 @@ export class Searchbar extends Component {
                        onKeyDown={this.onKeyDown}
                        placeholder={"Search Recipes..."} />
                 <Button className="with-input primary" onClick={()=>onSearch(search)}><FaSearch/></Button>
-                <Button className="primary ml-1"><FaFilter/></Button>
+                <Button className="primary ml-1 d-md-none"><FaFilter/></Button>
             </div>
         );
     }

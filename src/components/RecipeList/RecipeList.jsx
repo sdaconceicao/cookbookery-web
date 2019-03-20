@@ -27,4 +27,8 @@ RecipeList.propTypes = {
     render: PropTypes.func.isRequired
 };
 
+RecipeList.defaultValues = {
+    className: ''
+};
+
 export default RecipeList;

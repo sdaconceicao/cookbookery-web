@@ -10,6 +10,7 @@ import RecipeList from 'Components/RecipeList';
 import RecipeCard from "Components/RecipeCard";
 import Searchbar from 'Components/Searchbar';
 import HeaderNav from "Components/HeaderNav/HeaderNav";
+import Filters from 'Components/Filters';
 
 import "./Recipes.scss";
 
@@ -41,6 +42,10 @@ export class Recipes extends Component {
             })
     };
 
+    handleFilters = (filters) =>{
+
+    };
+
     render() {
         const {loading, recipes} = this.state;
         return (
@@ -53,7 +58,14 @@ export class Recipes extends Component {
                     <Searchbar className="recipes__search col-md-4 col-6"
                                onSearch={this.handleSearch}/>
                 </HeaderNav>
-                <div className="recipes__content">
+                <div className="recipes__content row">
+                    <aside className="recipes__filters col-md-3 d-none d-md-block">
+                        <header className="recipes__filters-header">
+                            <h3><FormattedMessage id="recipes.filters"/></h3>
+                        </header>
+                        <Filters handleFilters={this.handleFilters}/>
+                    </aside>
+                    <div className="recipes__list col-md-9 col-12">
                     {!loading
                         ? <RecipeList recipes={recipes} render={(recipe) => (
                             <RecipeCard title={recipe.title} desc={recipe.desc} image={recipe.image}
@@ -61,6 +73,7 @@ export class Recipes extends Component {
                         )}/>
                         : <Spinner size="xl"/>
                     }
+                    </div>
                 </div>
             </div>
         );

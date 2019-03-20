@@ -18,6 +18,16 @@
         overflow: auto;
         display: flex;
     }
+    &__filters{
+        background-color: var(--color-tertiary);
+        padding-top: .5rem;
+        &-header{
+            margin: -.5rem -1rem .5rem;
+            padding: .5rem;
+            background-color: var(--color-tertiary-dark);
+            color: var(--color-white);
+        }
+    }
     .searchbar{
         text-align: right;
     }
@@ -37,6 +47,9 @@
         &__content{
             margin: 0 -1rem;
         }
+        &__list{
+            padding: 0;
+        }
         .recipe-list__item{
             margin: 0;
             padding: 0;
@@ -51,10 +64,6 @@
     }
 
     @include media-breakpoint-up(sm) {
-        &__content{
-            margin: 0 -1rem;
-            padding: .5rem 1rem;
-        }
         .recipe-list__item {
             display: inline-block;
             width: calc(50% - 1rem);
@@ -64,17 +73,12 @@
     }
     @include media-breakpoint-up(md) {
         .recipe-list__item {
-            width: calc(33.3% - 1rem);
+            width: calc(50% - 1rem);
         }
     }
     @include media-breakpoint-up(lg) {
         .recipe-list__item {
-            width: calc(25% - 1rem);
-        }
-    }
-    @include media-breakpoint-down(xs) {
-        .recipe-list__item {
-
+            width: calc(33.3% - 1rem);
         }
     }
 }

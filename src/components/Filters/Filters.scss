@@ -1,4 +1,7 @@
+@import '~sad-shared-components/src/styles/utilities';
+
 .filters{
-    background-color: var(--color-primary-bg);
-    color: var(--color-primary-text);
+    &__list{
+        @include list-unstyled;
+    }
 }
