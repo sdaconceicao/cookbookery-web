@@ -95,7 +95,7 @@ module.exports = {
                 loader: 'babel-loader'
             },
             {
-                test: /\.(svg|png)$/,
+                test: /\.(svg)$/,
                 loader: 'file-loader',
                 query: {
                     name: 'assets/[name].[ext]'

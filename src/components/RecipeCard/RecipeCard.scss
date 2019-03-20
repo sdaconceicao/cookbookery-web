@@ -15,8 +15,12 @@
         @include ellipsis();
     }
     &__desc p{
-        margin-bottom: 0;
-        @include ellipsis();
+        display: none;
+        &:first-child{
+            display: block;
+            margin-bottom: 0;
+            @include ellipsis();
+        }
     }
     &__image{
         width: 100%;

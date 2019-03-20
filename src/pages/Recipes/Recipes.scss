@@ -15,8 +15,6 @@
     }
     &__content{
         height: calc(100vh - 5.75rem - 8px);
-        margin: 0 -1rem;
-        padding: .5rem 1rem;
         overflow: auto;
         display: flex;
     }
@@ -35,7 +33,28 @@
         }
     }
 
+    @include media-breakpoint-only(xs){
+        &__content{
+            margin: 0 -1rem;
+        }
+        .recipe-list__item{
+            margin: 0;
+            padding: 0;
+        }
+        .recipe-card{
+            border-radius: 0;
+            &__content, &__image{
+                border-radius: 0;
+            }
+
+        }
+    }
+
     @include media-breakpoint-up(sm) {
+        &__content{
+            margin: 0 -1rem;
+            padding: .5rem 1rem;
+        }
         .recipe-list__item {
             display: inline-block;
             width: calc(50% - 1rem);
