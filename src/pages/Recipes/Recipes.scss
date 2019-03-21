@@ -23,9 +23,32 @@
         padding-top: .5rem;
         &-header{
             margin: -.5rem -1rem .5rem;
-            padding: .5rem;
+            padding: 14px 15px;
             background-color: var(--color-tertiary-dark);
             color: var(--color-white);
+        }
+    }
+    &__list-header{
+        background-color: var(--color-tertiary);
+        margin-right: -15px;
+        margin-left: -15px;
+        padding: .5rem 0rem;
+    }
+    &__found{
+        width: calc(100% - 225px);
+        display: inline-block;
+        padding-left: 1rem;
+    }
+    &__orderBy{
+        width: 225px;
+        display: inline-block;
+        .form-label{
+            display: inline-block;
+            margin-right: .5rem;
+        }
+        .styled-select-wrapper{
+            display: inline-block;
+            width: 145px;
         }
     }
     .searchbar{
@@ -50,6 +73,9 @@
         &__list{
             padding: 0;
         }
+        &__list-header{
+            padding: .5rem 1rem .5rem .5rem;
+        }
         .recipe-list__item{
             margin: 0;
             padding: 0;
@@ -59,7 +85,6 @@
             &__content, &__image{
                 border-radius: 0;
             }
-
         }
     }
 

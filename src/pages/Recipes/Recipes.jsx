@@ -11,13 +11,17 @@ import RecipeCard from "Components/RecipeCard";
 import Searchbar from 'Components/Searchbar';
 import HeaderNav from "Components/HeaderNav/HeaderNav";
 import Filters from 'Components/Filters';
+import OrderBy from 'Components/OrderBy';
 
 import "./Recipes.scss";
 
 export class Recipes extends Component {
 
     state = {
-        loading: true
+        loading: true,
+        searchQuery: '',
+        orderBy: 'title',
+        filters: null
     };
 
     componentDidMount(){
@@ -34,20 +38,28 @@ export class Recipes extends Component {
     };
 
     handleSearch = (searchQuery) =>{
-        this.props.getList(`?searchQuery=${searchQuery}`)
-            .then(response=>{
-                this.setState({loading: false, recipes: response.data.recipes});
-            }).catch(error=>{
-                console.error("ERROR in retrieving recipes", error);
-            })
+        this.setState({searchQuery}, this.getList);
     };
 
     handleFilters = (filters) =>{
+        this.setState({filters}, this.getList);
+    };
 
+    handleOrderBy = (e) =>{
+        this.setState({orderBy: e.value}, this.getList);
+    };
+
+    getList = () =>{
+        const {searchQuery, orderBy, filters} = this.state;
+        this.props.getList({searchQuery, orderBy, ...filters}).then(response=>{
+            this.setState({loading: false, recipes: response.data.recipes});
+        }).catch(error=>{
+            console.error("ERROR in retrieving recipes", error);
+        })
     };
 
     render() {
-        const {loading, recipes} = this.state;
+        const {loading, recipes, orderBy} = this.state;
         return (
             <div className="recipes">
                 <HeaderNav>
@@ -65,14 +77,28 @@ export class Recipes extends Component {
                         </header>
                         <Filters handleFilters={this.handleFilters}/>
                     </aside>
+
                     <div className="recipes__list col-md-9 col-12">
-                    {!loading
-                        ? <RecipeList recipes={recipes} render={(recipe) => (
-                            <RecipeCard title={recipe.title} desc={recipe.desc} image={recipe.image}
-                                        onClick={() => this.handleClick(recipe.id)}/>
-                        )}/>
-                        : <Spinner size="xl"/>
-                    }
+                        <header className="recipes__list-header">
+                            <h4 className="recipes__found">
+                            {recipes && recipes.length > 0
+                                ? <FormattedMessage id="recipes.found" values={{values: recipes.length}}/>
+                                : null
+                            }
+                            </h4>
+                            <div className="recipes__orderBy">
+                                <OrderBy value={orderBy} onChange={this.handleOrderBy}/>
+                            </div>
+                        </header>
+                        <div className="recipes__list-content d-flex ">
+                        {!loading
+                            ? <RecipeList recipes={recipes} render={(recipe) => (
+                                <RecipeCard title={recipe.title} desc={recipe.desc} image={recipe.image}
+                                            onClick={() => this.handleClick(recipe.id)}/>
+                            )}/>
+                            : <Spinner size="xl"/>
+                        }
+                        </div>
                     </div>
                 </div>
             </div>

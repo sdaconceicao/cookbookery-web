@@ -9,50 +9,43 @@ import './Filters.scss';
 export class Filters extends Component {
 
     state = {
-        orderBy: 'title',
         cookTime: 0,
         prepTime: 0
     };
 
-
-    orderByOptions = [
-        {
-            label: <FormattedMessage id="recipe.title"/>,
-            value: 'title'
-        },
-        {
-            label: <FormattedMessage id="recipe.desc"/>,
-            value: 'desc'
-        }
-    ];
-
     comparatorOptions = [
         {
             label: <FormattedMessage id="filters.lessThan"/>,
-            value: '<'
+            value: 'lt'
         },
         {
             label: <FormattedMessage id="filters.greaterThan"/>,
-            value: '>'
+            value: 'gt'
         },
         {
             label: <FormattedMessage id="filters.equals"/>,
-            value: '='
+            value: 'eq'
         }
     ];
 
+    onSubmit = (filters) =>{
+        if(filters.prepTime === 0 || !filters.prepTimeComparator){
+            delete filters.prepTime;
+            delete filters.prepTimeComparator;
+        }
+        if(filters.cookTime === 0 || !filters.cookTimeComparator){
+            delete filters.cookTime;
+            delete filters.cookTimeComparator;
+        }
+        this.props.handleFilters(filters);
+    };
+
     render() {
-        const {className, handleFilters} = this.props,
-            {orderBy, cookTime, prepTime, cookTimeComparator, prepTimeComparator} = this.state;
+        const {className} = this.props,
+            {cookTime, prepTime, cookTimeComparator, prepTimeComparator} = this.state;
         return (
-            <Form className={`filters ${className}`} onSubmit={handleFilters}>
+            <Form className={`filters ${className}`} onSubmit={this.onSubmit}>
                 <ul className="filters__list">
-                    <li className="filters__list-item">
-                        <Select label={<FormattedMessage id="filters.orderBy"/>}
-                                name="orderBy"
-                                value={orderBy}
-                                options={this.orderByOptions}/>
-                    </li>
                     <li className="filters__list-item">
                         <Select label={<FormattedMessage id="filters.prepTime"/>}
                                 name="prepTimeComparator"
