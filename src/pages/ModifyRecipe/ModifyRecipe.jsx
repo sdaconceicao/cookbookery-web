@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {FormattedMessage} from 'react-intl';
 import {Link} from "react-router-dom";
 
-import {Spinner, Form, ImagePicker, Input, Duration, RichTextEditor, Tags, Fieldset, Button} from "sad-shared-components";
+import {Spinner, NavigationGuard, Form, ImagePicker, Input, Duration, RichTextEditor, Tags, Fieldset, Button} from "sad-shared-components";
 
 import Ingredients from "Components/Ingredients";
 import Steps from "Components/Steps"
@@ -14,6 +14,7 @@ import './ModifyRecipe.scss';
 export class ModifyRecipe extends Component {
 
     state = {
+        dirty: false,
         loading: true,
         saving: false,
         error: false,
@@ -46,7 +47,9 @@ export class ModifyRecipe extends Component {
         const {save, history} = this.props;
         this.setState({saving: true});
         save(data).then((response) => {
-            history.push(`/recipe/${response.data.id}`)
+            this.setState({dirty: false}, ()=>{
+                history.push(`/recipe/${response.data.id}`)
+            });
         }).catch(error=>{
             this.setState({error});
         }).finally(()=>{
@@ -54,12 +57,14 @@ export class ModifyRecipe extends Component {
         });
     };
 
+    onFormChange = (e) =>{
+        this.setState({dirty: e.dirty});
+    };
+
     handleAddIngredient = () =>{
         const {ingredients} = this.state;
         ingredients.push({id: `temp-${Math.floor(Math.random() * 1000+1)}`, desc: ''});
-        this.setState({ingredients}, ()=>{
-
-        });
+        this.setState({ingredients});
     };
 
     handleAddStep = () =>{
@@ -85,7 +90,8 @@ export class ModifyRecipe extends Component {
     };
 
     render() {
-        const {id, form, creating, image, loading, prepTime, cookTime, servingSize, desc, title, tags, ingredients, steps} = this.state;
+        const {id, form, creating, image, loading, prepTime, cookTime, servingSize,
+            desc, title, tags, ingredients, steps, dirty} = this.state;
         return (
             <div className='modify-recipe'>
                 <HeaderNav className="modify-recipe__header">
@@ -103,6 +109,7 @@ export class ModifyRecipe extends Component {
                 </HeaderNav>
                 <Form className="modify-recipe__content row"
                       ref={form}
+                      onChange={this.onFormChange}
                       onSubmit={this.onSubmit}>
                     {!loading && <Fragment>
                     <div className="col-12 col-lg-4">
@@ -154,6 +161,12 @@ export class ModifyRecipe extends Component {
                         </Fieldset>
                     </div>
                     </Fragment>}
+                    <NavigationGuard
+                        title={<FormattedMessage id="recipe.navigate.title"/>}
+                        message={<FormattedMessage id="recipe.navigate.message"/>}
+                        when={dirty}
+                        history={this.props.history}/>
+
                     {loading && <Spinner size='xl'/>}
                 </Form>
             </div>
