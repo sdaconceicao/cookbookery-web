@@ -9,5 +9,5 @@ import {apiConfig} from 'cookbookery-shared';
 import {App} from './app';
 
 //MOCKS_ENABLED is set by params passed into build
-apiConfig(axios, MOCKS_ENABLED);  // eslint-disable-line no-undef
+apiConfig(axios, process.env.REACT_APP_BASE_URL, MOCKS_ENABLED);  // eslint-disable-line no-undef
 ReactDOM.render(<App/>, document.getElementById('root'));
