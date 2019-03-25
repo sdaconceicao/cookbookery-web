@@ -4,6 +4,7 @@ import {FormattedMessage} from 'react-intl';
 import {Link} from "react-router-dom";
 
 import {Spinner, NavigationGuard, Form, ImagePicker, Input, Duration, RichTextEditor, Tags, Fieldset, Button} from "sad-shared-components";
+import * as placeholder from 'cookbookery-shared/src/assets/img/placeholder.png';
 
 import Ingredients from "Components/Ingredients";
 import Steps from "Components/Steps"
@@ -122,6 +123,7 @@ export class ModifyRecipe extends Component {
                                      id="image"
                                      value={image}
                                      buttonClassName={'primary'}
+                                     placeholder={placeholder}
                                      label={<FormattedMessage id="recipe.image"/>}/>
                         <Duration id="prepTime" name="prepTime"
                                   value={prepTime}
