@@ -6,9 +6,9 @@ import {TransitionGroup, CSSTransition} from 'react-transition-group';
 import {enMessages as sharedEnMessages} from 'sad-shared-components';
 import {enMessages} from 'cookbookery-shared';
 
-import MainNav from './MainNav';
+import MainNav from 'Components/MainNav';
+import SideNav from "Components/SideNav"
 import Pages from 'Pages';
-import SideNav from "./SideNav"
 
 import './App.scss';
 
@@ -27,15 +27,15 @@ export class App extends Component {
         return (
             <IntlProvider locale="en" messages={Object.assign(enMessages, sharedEnMessages)}>
                 <Router>
-                    <Route render={({ location }) => (
-                        <div className="app">
-                            <header className="app__header container-fluid">
-                                <MainNav handleMenuClick={()=>this.handleSideNavOpen(true)}/>
-                            </header>
-                            <aside className={`app__sidenav ${sideNavOpen ? 'open' : 'closed'}`}>
-                                <SideNav handleClose={()=>this.handleSideNavOpen(false)}/>
-                            </aside>
-                            <main className="app__content" onClick={()=>this.handleSideNavOpen(false)}>
+                    <div className="app">
+                        <header className="app__header container-fluid">
+                            <MainNav handleMenuClick={()=>this.handleSideNavOpen(true)}/>
+                        </header>
+                        <aside className={`app__sidenav ${sideNavOpen ? 'open' : 'closed'}`}>
+                            <SideNav handleClose={()=>this.handleSideNavOpen(false)}/>
+                        </aside>
+                        <main className="app__content" onClick={()=>this.handleSideNavOpen(false)}>
+                            <Route render={({ location }) => (
                                 <TransitionGroup component={Fragment}>
                                     <CSSTransition
                                         timeout={{enter: 500, exit: 300}}
@@ -44,10 +44,9 @@ export class App extends Component {
                                         <Pages location={location}/>
                                     </CSSTransition>
                                 </TransitionGroup>
-                            </main>
-                        </div>
-                    )}
-                    />
+                            )}/>
+                        </main>
+                    </div>
                 </Router>
             </IntlProvider>
         );
