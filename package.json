@@ -6,7 +6,7 @@
   "dependencies": {
     "axios": "0.18",
     "bootstrap": "^4.1.1",
-    "cookbookery-shared": "https://github.com/sdaconceicao/cookbookery-shared",
+    "cookbookery-shared": "https://github.com/sdaconceicao/cookbookery-shared#master",
     "copy-webpack-plugin": "^4.6.0",
     "core-js": "^2.6.5",
     "intl": "^1.2.5",
@@ -15,10 +15,11 @@
     "react-dom": "16.7.0",
     "react-icons": "^2.2.3",
     "react-intl": "^2.2.3",
-    "react-router-dom": "^4.2.2",
+    "react-router": "^5.0.0",
+    "react-router-dom": "^5.0.0",
     "react-transition-group": "2.5.2",
     "reactstrap": "^7.0.2",
-    "sad-shared-components": "https://github.com/sdaconceicao/shared-components"
+    "sad-shared-components": "https://github.com/sdaconceicao/shared-components#master"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
