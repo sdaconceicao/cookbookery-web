@@ -4,7 +4,7 @@ import {FormattedMessage} from 'react-intl';
 import {Link} from "react-router-dom";
 import FaPlus from "react-icons/lib/fa/plus-square";
 
-import {Spinner} from 'sad-shared-components';
+import {Spinner, Alert} from 'sad-shared-components';
 
 import RecipeList from 'Components/RecipeList';
 import RecipeCard from "Components/RecipeCard";
@@ -21,7 +21,8 @@ export class Recipes extends Component {
         loading: true,
         searchQuery: '',
         orderBy: 'title',
-        filters: null
+        filters: null,
+        error: null
     };
 
     componentDidMount(){
@@ -30,6 +31,7 @@ export class Recipes extends Component {
             this.setState({loading: false, recipes: response.data.recipes});
         }).catch(error=>{
             console.error("ERROR in retrieving recipes", error);
+            this.setState({loading: false, error: <FormattedMessage id="recipes.unavailable"/>});
         })
     }
 
@@ -51,15 +53,17 @@ export class Recipes extends Component {
 
     getList = () =>{
         const {searchQuery, orderBy, filters} = this.state;
+        this.setState({error: false});
         this.props.getList({searchQuery, orderBy, ...filters}).then(response=>{
             this.setState({loading: false, recipes: response.data.recipes});
         }).catch(error=>{
             console.error("ERROR in retrieving recipes", error);
+            this.setState({loading: false, error: <FormattedMessage id="recipes.unavailable"/>});
         })
     };
 
     render() {
-        const {loading, recipes, orderBy} = this.state;
+        const {loading, recipes, orderBy, error} = this.state;
         return (
             <div className="recipes">
                 <HeaderNav>
@@ -92,8 +96,10 @@ export class Recipes extends Component {
                         </header>
                         <div className="recipes__list-content d-flex ">
                         {!loading
-                            ? <RecipeList recipes={recipes} render={(recipe) => (
-                                <RecipeCard title={recipe.title} desc={recipe.desc} image={recipe.image}
+                            ? error 
+                                ? <Alert type="error" className="recipes__message">{error}</Alert>
+                                : <RecipeList recipes={recipes} render={(recipe) => (
+                                    <RecipeCard title={recipe.title} desc={recipe.desc} image={recipe.image}
                                             onClick={() => this.handleClick(recipe.id)}/>
                             )}/>
                             : <Spinner size="xl"/>

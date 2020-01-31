@@ -2,6 +2,10 @@
 
 .recipes{
     height: 100%;
+    &__message{
+        flex: 1;
+        place-self: flex-start;
+    }
     &__title{
         span{
             margin-top: 0.2rem;
