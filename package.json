@@ -4,7 +4,7 @@
   "private": true,
   "homepage": ".",
   "dependencies": {
-    "axios": "0.18",
+    "axios": "0.21",
     "bootstrap": "^4.1.1",
     "cookbookery-shared": "https://github.com/sdaconceicao/cookbookery-shared#master",
     "copy-webpack-plugin": "^4.6.0",
